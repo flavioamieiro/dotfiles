@@ -20,3 +20,4 @@ link .fehrc
 link .fonts.conf
 link .gitconfig
 link .screenrc
+link .skippyrc
