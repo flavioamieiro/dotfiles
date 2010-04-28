@@ -14,3 +14,4 @@ link() {
 
 link .conkyrc
 link .bashrc
+link .git-completion.bash
