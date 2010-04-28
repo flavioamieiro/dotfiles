@@ -17,3 +17,4 @@ link .bashrc
 link .git-completion.bash
 link .fehbg
 link .fehrc
+link .fonts.conf
