@@ -26,3 +26,12 @@ link .vimrc
 link .Xdefaults
 link .Xmodmap
 link .xinitrc
+
+if [ -d $HOME/.config/openbox/ ]
+then
+    link .config/openbox/autostart.sh
+    link .config/openbox/menu.xml
+    link .config/openbox/rc.xml
+else
+    echo "$HOME/.config/openbox/ not found!"
+fi
