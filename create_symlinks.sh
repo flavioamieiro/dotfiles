@@ -19,3 +19,4 @@ link .fehbg
 link .fehrc
 link .fonts.conf
 link .gitconfig
+link .screenrc
