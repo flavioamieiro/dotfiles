@@ -21,3 +21,4 @@ link .fonts.conf
 link .gitconfig
 link .screenrc
 link .skippyrc
+link .tint2rc
