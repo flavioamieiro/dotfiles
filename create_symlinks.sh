@@ -13,3 +13,4 @@ link() {
 }
 
 link .conkyrc
+link .bashrc
