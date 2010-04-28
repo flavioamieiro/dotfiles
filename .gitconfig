@@ -1,0 +1,11 @@
+[user]
+    name = Flavio Amieiro
+    email = amieiro.flavio@gmail.com
+[core]
+    pager = less -FXRS
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+    pager = true
+    ui = auto

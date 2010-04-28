@@ -18,3 +18,4 @@ link .git-completion.bash
 link .fehbg
 link .fehrc
 link .fonts.conf
+link .gitconfig
