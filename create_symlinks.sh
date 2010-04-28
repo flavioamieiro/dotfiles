@@ -23,3 +23,6 @@ link .screenrc
 link .skippyrc
 link .tint2rc
 link .vimrc
+link .Xdefaults
+link .Xmodmap
+link .xinitrc

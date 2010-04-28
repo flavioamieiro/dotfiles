@@ -1,0 +1,17 @@
+XTerm*FaceName: monaco
+!XTerm*FaceSize: 11
+XTerm*FaceSize: 12
+!XTerm*FaceSize: 15
+
+XTerm*background: black
+XTerm*foreground: white
+XTerm*termName: xterm-256color
+XTerm*geometry: 128x42
+
+
+
+URxvt*background: black
+URxvt*foreground: white
+URxvt*geometry: 128x40
+URxvt*scrollBar: False
+URxvt*font: xft:monaco-11
