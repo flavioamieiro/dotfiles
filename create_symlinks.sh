@@ -19,6 +19,7 @@ link .fehbg
 link .fehrc
 link .fonts.conf
 link .gitconfig
+link .irbrc
 link .screenrc
 link .skippyrc
 link .tint2rc
