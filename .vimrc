@@ -119,6 +119,7 @@ set whichwrap=<,>,b,s,[,]
 
 map <F9> :NERDTreeMirror<return>
 map <F10> :NERDTreeToggle<return>
+let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 
 "Code folding
 function ToggleFold()
