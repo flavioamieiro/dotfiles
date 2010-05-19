@@ -14,6 +14,7 @@ link() {
 
 link .conkyrc
 link .bashrc
+link .coderc
 link .git-completion.bash
 link .fehbg
 link .fehrc
