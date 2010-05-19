@@ -9,3 +9,6 @@ export EDITOR=vim
 
 #this fucks up the control+key shortcuts
 #set -o vi
+
+source ~/.git-completion.bash
+export PS1='[\u@\h \w$(__git_ps1 "(%s)")]\$ '
