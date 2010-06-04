@@ -14,4 +14,5 @@ URxvt*background: black
 URxvt*foreground: white
 URxvt*geometry: 128x40
 URxvt*scrollBar: False
-URxvt*font: xft:monaco-11
+!URxvt*font: xft:monaco-11
+URxvt*font: xft:monaco
