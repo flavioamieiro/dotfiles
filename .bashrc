@@ -12,3 +12,8 @@ export EDITOR=vim
 
 source ~/.git-completion.bash
 export PS1='[\u@\h \w$(__git_ps1 "(%s)")]\$ '
+
+# Change urxvt font size
+function fontsize() {
+    printf '\33]50;%s\007' "xft:Monaco:pixelsize=$1"
+}
