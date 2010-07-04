@@ -12,6 +12,11 @@ set visualbell
 "colorscheme darkblue
 colorscheme synic
 
+"Por algum motivo o gnome-terminal não se entende com o colorscheme synic
+if ($COLORTERM == 'gnome-terminal')
+    colorscheme desert
+endif
+
 set mouse=a
 
 "Desabilita o modo de compatibilidade
