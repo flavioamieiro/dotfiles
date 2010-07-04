@@ -284,7 +284,7 @@
     </keybind-->
     <keybind key="C-A-t">
       <action name="Execute">
-        <execute>xterm</execute>
+        <execute>urxvt</execute>
       </action>
     </keybind>
     <keybind key="W-space">
