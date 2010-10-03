@@ -295,7 +295,7 @@
     <!-- keybinding for the screen lock -->
     <keybind key="C-A-l">
       <action name="Execute">
-        <execute>xlock -mousemotion -mode blank -fg grey30 -bg black</execute>
+        <execute>xscreensaver-command -lock</execute>
       </action>
     </keybind>
     <!-- Keybindings for menus -->
