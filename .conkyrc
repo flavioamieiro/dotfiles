@@ -213,7 +213,7 @@ TEXT
 ${color #969495}$sysname ${execi 100000 uname -r | cut -d . -f1-4} $machine - $nodename
 ${color #969495}Uptime:${color lightgrey} $uptime ${color #969495} Load:${color lightgrey} $loadavg
 
-${color #969495}${execi 1000 cat /proc/cpuinfo | grep 'model name' | sed -e 's/model name.*: //'}
+#${color #969495}${execi 1000 cat /proc/cpuinfo | grep 'model name' | sed -e 's/model name.*: //'}
 #${alignr}${color lightgrey}${freq_g 1}Mhz | ${freq_g 2}Mhz
 
 ${color #969495}Core 1:${color #969495} ${color lightgrey}${cpu cpu1}% ${color #969495}${cpubar cpu1}
