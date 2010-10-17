@@ -215,12 +215,22 @@ ${color #969495}Uptime:${color lightgrey} $uptime ${color #969495} Load:${color 
 
 #${color #969495}${execi 1000 cat /proc/cpuinfo | grep 'model name' | sed -e 's/model name.*: //'}
 #${alignr}${color lightgrey}${freq_g 1}Mhz | ${freq_g 2}Mhz
+#
 
-${color #969495}Core 1:${color #969495} ${color lightgrey}${cpu cpu1}% ${color #969495}${cpubar cpu1}
-${color #969495}${cpugraph cpu1 000000 969495}
-${color #969495}Core 2:${color #969495} ${color lightgrey}${cpu cpu2}% ${color #969495}${cpubar cpu2}
-${color #969495}${cpugraph cpu2 000000 969495}
-${color #969495}Processes:${color lightgrey} $processes  ${color #969495}Run:${color lightgrey} $running_processes ${color #969495}CPU1:${color lightgrey} ${execi 6 /usr/bin/sensors | grep Core\ 0| paste -s | cut -c15-16,19}${color lightgrey} ${color #969495}CPU2:${color lightgrey} ${execi 6 /usr/bin/sensors | grep Core\ 1| paste -s | cut -c15-16,19}
+### Old cpu bars
+# ${color 969495}Core 1:${color 969495} ${color lightgrey}${cpu cpu1}% ${color 969495}${cpubar cpu1}
+# ${color 969495}${cpugraph cpu1 000000 969495}
+# ${color 969495}Core 2:${color 969495} ${color lightgrey}${cpu cpu2}% ${color 969495}${cpubar cpu2}
+# ${color 969495}${cpugraph cpu2 000000 969495}
+###
+
+${color 969495}Core 1:${color 969495} ${color lightgrey}${cpu cpu1}% ${alignr 67}${color 969495} ${color 969495}Core 2:${color 969495} ${color lightgrey}${cpu cpu2}% ${color 969495}
+${cpubar cpu1 3,120} ${alignr 7} ${cpubar cpu2 3,120}
+${color 969495}${cpugraph cpu1 30,120 000000 969495} ${alignr 7} ${color 969495}${cpugraph cpu2 30,120 000000 969495}
+${color 969495}Core 3:${color 969495} ${color lightgrey}${cpu cpu3}% ${alignr 67} ${color 969495} ${color 969495}Core 4:${color 969495} ${color lightgrey}${cpu cpu4}% ${color 969495}
+${cpubar cpu3 3,120} ${alignr 7} ${cpubar cpu4 3,120}
+${color 969495}${cpugraph cpu3 30,120 000000 969495} ${alignr 7} ${color 969495}${cpugraph cpu4 30,120 000000 969495}
+${color 969495}Processes:${color lightgrey} $processes  ${color 969495}Run:${color lightgrey} $running_processes ${color 969495}CPU1:${color lightgrey} ${execi 6 /usr/bin/sensors | grep Core\ 0| paste -s | cut -c15-16,19}${color lightgrey} ${color 969495}CPU2:${color lightgrey} ${execi 6 /usr/bin/sensors | grep Core\ 1| paste -s | cut -c15-16,19}
 
 ${color #969495}RAM:${color lightgrey} $mem/$memmax - $memperc% ${alignr}${color #969495}${membar 5,70}
 ${color #969495}SWP:${color lightgrey} $swap/$swapmax - $swapperc% ${alignr}${color #969495}${swapbar 5,95}
