@@ -75,7 +75,7 @@ default_outline_color white
 #alignment top_left
 #minimum_size 10 10
 gap_x 15
-gap_y 70
+gap_y 30
 alignment top_right
 #alignment bottom_left
 #alignment bottom_right
