@@ -37,3 +37,10 @@ then
 else
     echo "$HOME/.config/openbox/ not found!"
 fi
+
+if [ -d $HOME/bin/ ]
+then
+    link bin/volume_control
+else
+    echo "$HOME/bin/ not found!"
+fi

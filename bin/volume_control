@@ -1,0 +1,25 @@
+#!/bin/sh
+
+case $1 in
+up)
+    amixer -q set 'Master' 5%+ unmute
+    ;;
+down)
+    amixer -q set 'Master' 5%- unmute
+    ;;
+toggle)
+    amixer -q set 'Master' toggle
+    ;;
+esac
+
+AMIXER_LINE=`amixer get Master | grep 'Front Left:'`
+STATUS=`echo $AMIXER_LINE | grep '\[on\]'`
+
+if [ -n "$STATUS" ]
+then
+    VOL=`echo "$AMIXER_LINE" | cut -d ' ' -f7 | tr -d '[]'`
+else
+    VOL='mute'
+fi
+
+notify-send -t 1000 "Volume: $VOL"
