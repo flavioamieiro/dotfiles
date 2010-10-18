@@ -6,3 +6,4 @@
 tint2 -c ~/.tint2rc &
 eval $(ssh-agent)
 /usr/bin/xscreensaver -no-splash &
+setxkbmap br
