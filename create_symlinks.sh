@@ -15,10 +15,11 @@ link() {
 link .conkyrc
 link .bashrc
 link .coderc
-link .git-completion.bash
+link .emacs
 link .fehbg
 link .fehrc
 link .fonts.conf
+link .git-completion.bash
 link .gitconfig
 link .irbrc
 link .screenrc
