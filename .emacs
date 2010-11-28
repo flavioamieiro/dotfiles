@@ -3,3 +3,4 @@
 (menu-bar-mode nil)
 (scroll-bar-mode nil)
 (setq make-backup-files nil)
+(setq require-final-newline t)
