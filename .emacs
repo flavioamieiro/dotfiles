@@ -6,3 +6,4 @@
 (setq require-final-newline t)
 (setq icomplete-mode t)
 (show-paren-mode t)
+(setq x-select-enable-clipboard t)
