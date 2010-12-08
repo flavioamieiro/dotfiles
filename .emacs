@@ -5,3 +5,4 @@
 (setq make-backup-files nil)
 (setq require-final-newline t)
 (setq icomplete-mode t)
+(show-paren-mode t)
