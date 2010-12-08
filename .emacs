@@ -4,3 +4,4 @@
 (scroll-bar-mode nil)
 (setq make-backup-files nil)
 (setq require-final-newline t)
+(setq icomplete-mode t)
