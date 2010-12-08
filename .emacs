@@ -7,6 +7,7 @@
 (setq icomplete-mode t)
 (show-paren-mode t)
 (setq x-select-enable-clipboard t)
+(setq split-width-threshold nil)
 
 (custom-set-faces 
  '(default ((t (:foreground "ivory" :background "black"))))
