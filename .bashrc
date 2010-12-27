@@ -12,6 +12,16 @@ export EDITOR=vim
 
 source ~/.git-completion.bash
 export PS1='[\u@\h \w$(__git_ps1 "(%s)")]\$ '
+if [ $TERM = "screen" ]
+then
+    # If we're using screen, include <ESC>k<ESC>\
+    # in the PS1 so the window title is updated
+    # to the current running command.
+    # This sequence itself has to be escaped,
+    # otherwise commands longer than one line
+    # are not displayed correctly.
+    export PS1="\[\033k\]\[\033\ \]$PS1"
+fi
 
 # Change urxvt font size
 function fontsize() {
