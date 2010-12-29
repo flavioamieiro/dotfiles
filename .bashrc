@@ -20,7 +20,7 @@ then
     # This sequence itself has to be escaped,
     # otherwise commands longer than one line
     # are not displayed correctly.
-    export PS1="\[\033k\]\[\033\ \]$PS1"
+    export PS1="\[\033k\]\[\033\ \]\[\033[G\]$PS1"
 fi
 
 # Change urxvt font size
