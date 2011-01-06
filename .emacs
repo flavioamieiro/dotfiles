@@ -1,5 +1,6 @@
 (require 'ido)
 (ido-mode t)
+(setq ido-enable-flex-matching t) ;; fuzzy finding no ido
 (global-linum-mode t)
 (tool-bar-mode nil)
 (menu-bar-mode nil)
