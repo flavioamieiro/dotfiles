@@ -7,3 +7,5 @@ tint2 -c ~/.tint2rc &
 eval $(ssh-agent)
 /usr/bin/xscreensaver -no-splash &
 setxkbmap br
+# Isso não funcionou no .xinitrc, mas devia estar lá.
+xmodmap $HOME/.Xmodmap
