@@ -40,7 +40,7 @@ function work () {
           source ~/.coderc
           workon $env_name
           cdvirtualenv
-          cd src
+          [ -d src ] && cd src
           " > ~/.virtualenvrc
 
     bash --rcfile ~/.virtualenvrc
