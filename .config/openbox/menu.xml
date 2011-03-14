@@ -6,7 +6,7 @@
 
     <menu id="root-menu" label="Openbox 3">
       <item label="Terminal emulator">
-        <action name="Execute"><execute>urxvt</execute></action>
+        <action name="Execute"><execute>terminator --geometry 900x600</execute></action>
       </item>
       <item label="Web browser">
         <action name="Execute"><execute>firefox</execute></action>
