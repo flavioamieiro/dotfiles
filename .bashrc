@@ -28,4 +28,6 @@ function fontsize() {
     printf '\33]50;%s\007' "xft:Monaco:pixelsize=$1"
 }
 
+which rlwrap > /dev/null 2>&1 && alias guile="rlwrap guile"
+
 source $HOME/.coderc
