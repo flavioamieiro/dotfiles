@@ -40,7 +40,6 @@ link .bashrc
 link .coderc
 link .emacs
 link .fehbg
-link .fehrc
 link .fonts.conf
 link .git-completion.bash
 link .gitconfig
@@ -61,6 +60,14 @@ then
     link .config/openbox/rc.xml
 else
     echo "$HOME/.config/openbox/ not found!"
+fi
+
+create_dir_if_it_does_not_exist "$HOME/.config/feh/"
+if [ $? -eq 0 ]
+then
+    link .config/feh/themes
+else
+    echo "$HOME/.config/feh/ not found!"
 fi
 
 create_dir_if_it_does_not_exist "$HOME/bin/"
