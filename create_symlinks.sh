@@ -35,6 +35,25 @@ create_dir_if_it_does_not_exist() {
     return 0
 }
 
+link_dir() {
+    DIR="$1"
+    SUBDIRS=$(find "$DIR" -type d)
+    for SUBDIR in $SUBDIRS
+    do
+        create_dir_if_it_does_not_exist "$HOME/$SUBDIR"
+        if [ $? -eq 0 ]
+        then
+            FILES=$(find "$SUBDIR" -maxdepth 1 -type f)
+            for FILE in $FILES
+            do
+                link $FILE
+            done
+        else
+            echo "$HOME/$SUBDIR not found!"
+        fi
+    done
+}
+
 link .conkyrc
 link .bashrc
 link .coderc
@@ -52,61 +71,6 @@ link .Xdefaults
 link .Xmodmap
 link .xinitrc
 
-create_dir_if_it_does_not_exist "$HOME/.config/openbox/"
-if [ $? -eq 0 ]
-then
-    link .config/openbox/autostart.sh
-    link .config/openbox/menu.xml
-    link .config/openbox/rc.xml
-else
-    echo "$HOME/.config/openbox/ not found!"
-fi
-
-create_dir_if_it_does_not_exist "$HOME/.config/feh/"
-if [ $? -eq 0 ]
-then
-    link .config/feh/themes
-else
-    echo "$HOME/.config/feh/ not found!"
-fi
-
-create_dir_if_it_does_not_exist "$HOME/bin/"
-if [ $? -eq 0 ]
-then
-    link bin/volume_control
-else
-    echo "$HOME/bin/ not found!"
-fi
-
-create_dir_if_it_does_not_exist "$HOME/.vim/colors/"
-if [ $? -eq 0 ]
-then
-    link .vim/colors/synic.vim
-else
-    echo "$HOME/.vim/colors/ not found!"
-fi
-
-create_dir_if_it_does_not_exist "$HOME/.vim/compiler/"
-if [ $? -eq 0 ]
-then
-    link .vim/compiler/pylint.vim
-else
-    echo "$HOME/.vim/compiler/ not found!"
-fi
-
-create_dir_if_it_does_not_exist "$HOME/.vim/plugin/"
-if [ $? -eq 0 ]
-then
-    link .vim/plugin/NERD_tree.vim
-    link .vim/plugin/NERD_commenter.vim
-else
-    echo "$HOME/.vim/plugin/ not found!"
-fi
-
-create_dir_if_it_does_not_exist "$HOME/.vim/syntax/"
-if [ $? -eq 0 ]
-then
-    link .vim/syntax/arduino.vim
-else
-    echo "$HOME/.vim/syntax/ not found!"
-fi
+link_dir .config
+link_dir bin
+link_dir .vim
