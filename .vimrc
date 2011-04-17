@@ -1,89 +1,77 @@
-scriptencoding utf8 "diz o encoding deste arquivo
+scriptencoding utf8
 
+filetype plugin on
 syntax on
-set number
-set ruler "mostra a posicao atual na barra de status
-set showcmd "no modo visual, mostra a quantidade de linhas selecionadas
-set is hls ic scs
-set nobackup
-set visualbell
-"colorscheme desert
-"colorscheme ir_black
-"colorscheme darkblue
-colorscheme synic
 
-"Por algum motivo o gnome-terminal não se entende com o colorscheme synic
-if ($COLORTERM == 'gnome-terminal')
-    colorscheme desert
-endif
-
-set mouse=a
-
-"Desabilita o modo de compatibilidade
 set nocp
+set nobackup
 
-"4 espacos no lugar de tab
+" Navigation
+set mouse=a
+set bs=2
+set whichwrap=<,>,b,s,[,]
+
+" Prompt
+set wildmode=longest:list,full " Fix tab completion
+
+" Search
+set magic
+set is hls ic scs
+
+" Tab
 set expandtab
 set tabstop=4
 set smarttab
 set softtabstop=4
-"shifting de igual ao tab
 set shiftwidth=4
-"auto identação - com o problema de levar o comentário pro inicio da linha
-"resolvido
+"auto ident that doesn't make comments go to the begging of a line
 set smartindent
 inoremap # X#
 set autoindent
-
-"faz o backspace se comportar como o esperado
-set bs=2
-
-"Ativa o suporte a filetype
-filetype plugin on
-
-"do .vimrc do aurelio (coluna-09.vim):
-imap <F7> <c-n>
-imap <F8> <c-x><c-n>
-
-"Python code completion
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType python compiler pylint "PyLint como compilador de Python
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-
-"de http://blog.sontek.net/2008/05/11/python-with-a-modular-ide-vim/
-"map CTRL+Space as for code completion
-"inoremap <Nul> <C-x> <C-o>
-
-"Usa Ctrl+espaço para autocomplete
-inoremap <C-space> <C-p>
-imap <Nul> <C-p>
-
-"Inclui o diretorio do python no path
-set path+=/usr/lib/python2.5/site-packages/
-"Inclui o diretorio atual
-set path+=
-
-"da wiki do python.org
-"autocmd BufRead,BufNewFile *.py syntax on
-"autocmd BufRead,BufNewFile *.py set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
-"
-"foi substituido por isso:
 filetype indent on
 
-"Faz o tabcompletion se comportar direito; :help wildmode
-set wildmode=longest:list,full
 
-"Tem muita coisa boa nesta pergunta do stackoverflow:
-"http://stackoverflow.com/questions/164847/what-is-in-your-vimrc
+""""""""""""""""""""""""""""""
+" Color and UI configuration "
+""""""""""""""""""""""""""""""
+set number
+set title
+set visualbell
 
-"Define folds onde encontrar marcas: {{{ }}}
-"set foldmethod=marker
+" Statusbar
+set ruler
+set showcmd
+set laststatus=1
+
+colorscheme synic
+" For some reason synic colorscheme does not work on gnome-terminal
+if ($COLORTERM == 'gnome-terminal')
+    colorscheme desert
+endif
+
+if has("gui_running")
+   set guioptions-=T " disable toolbar
+   set guioptions-=t " disable tear-off
+   set guioptions-=m " disable menu
+   set guioptions-=l
+   set guioptions-=r
+   set guioptions-=b
+
+   colorscheme synic
+   set gfn=Inconsolata\ 15
+endif
+
+" highlight characters after 80 columns
+highlight OverLength ctermbg=lightred ctermfg=black guibg=#592929
+match OverLength /\%81v.*/
+
+
+""""""""""""""""""""""""""""
+" Buffer text manipulation "
+""""""""""""""""""""""""""""
 
 " Stolen from http://docs.google.com/View?docid=dfkkkxv5_65d5p3nk
- " This enables you to see tab characters and stray whitespace
-
+" This enables you to see tab characters and stray whitespace
 " Show tabs and trailing whitespace visually
 if (&termencoding == "utf-8") || has("gui_running")
     if v:version >= 700
@@ -98,33 +86,6 @@ else
         set list listchars=tab:>\ ,trail:.,extends:>
     endif
 endif
-
-"http://vim.wikia.com/wiki/Remove_unwanted_spaces#Automatically_removing_all_trailing_whitespace
-autocmd BufWritePre * :%s/\s\+$//e
-
-"de http://github.com/developernotes/vim-setup
-"Setup 80 column word wrap.
-"set wrap
-"set linebreak
-"set textwidth=80
-
-"Do vimrc do Vagner Fonseca
-"
-set magic                       "usa 'magia' ao procurar texto =)
-"set bs=indent,eol,start
-set laststatus=1                "mostra sempre a statusbar com o nome do arquivo
-set title                       "mostra o nome do arquivo no titulo do terminal
-
-
-"do vim maratonistico:
-" Faz as setas para esquerda/direita voltarem/avançarem para a linha
-" anterior/seguinte, tornando o comportamento do Vim mais parecido com o
-" comportamento dos outros editores.
-set whichwrap=<,>,b,s,[,]
-
-map <F9> :NERDTreeMirror<return>
-map <F10> :NERDTreeToggle<return>
-let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 
 "Code folding
 function ToggleFold()
@@ -167,7 +128,7 @@ function ToggleFold()
       "execute "normal i" . l_min . "," . l . " fold"   " print debug info
 
       if l > l_min
-"         " Create the fold from l_min to l
+         " Create the fold from l_min to l
          execute l_min . "," . l . " fold"
       endif
    else
@@ -175,35 +136,45 @@ function ToggleFold()
       normal zd
    endif
 endfunction
-
 nmap <space> :call ToggleFold()<CR>
 
-"Configurações pro gvim
-if has("gui_running")
-   set guioptions-=T " desabilita barra de ferramentas
-   set guioptions-=t " desabilita tear-off
-   set guioptions-=m " desabilita menu
-   set guioptions-=l
-   set guioptions-=r
-   set guioptions-=b
+"http://vim.wikia.com/wiki/Remove_unwanted_spaces#Automatically_removing_all_trailing_whitespace
+autocmd BufWritePre * :%s/\s\+$//e
 
-   set mouse=a   " habilita uso pleno do mouse
-   colorscheme synic
-   set gfn=Inconsolata\ 15
-endif
 
-"Configurações específicas do pylint.vim
-let g:pylint_cwindow = 0
-let g:pylint_onwrite = 0
-"
-":cope "abre a lista de erros
-":cclo "fecha a lista de erros
-":make "compila o código
-":make! "compila mas não pula pro primeiro erro
+""""""""""""
+" Mappings "
+""""""""""""
+inoremap <C-space> <C-p>
+imap <Nul> <C-p>
+map <F9> :NERDTreeMirror<return>
+map <F10> :NERDTreeToggle<return>
+
+
+""""""""""""""""""""""""""""""""""""
+" Language-specific configurations "
+""""""""""""""""""""""""""""""""""""
+
+"" Python
+
+" Include system python in path
+set path+=/usr/lib/python2.5/site-packages/
+" Include current dir in path
+set path+=
+
+"Python code completion
+autocmd FileType python set omnifunc=pythoncomplete#Complete
 let g:pydiction_location='/home/flavio/.vim/complete_dict'
 
+let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 
-"Mostra caracteres que passaram de 80 colunas
-highlight OverLength ctermbg=lightred ctermfg=black guibg=#592929
-match OverLength /\%81v.*/
-au BufNewFile,BufRead *.pde setf arduino
+" pylint.vim configurations
+autocmd FileType python compiler pylint "Use pylint as a Python compiler
+let g:pylint_cwindow = 0
+let g:pylint_onwrite = 0
+
+" Other languages
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+autocmd BufNewFile,BufRead *.pde setf arduino
