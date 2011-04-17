@@ -15,7 +15,7 @@
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (custom-set-faces
- '(default ((t (:foreground "ivory" :background "black" :family "monaco" :height 130))))
+ '(default ((t (:foreground "ivory" :background "black" :family "Inconsolata" :height 140))))
  '(cursor ((t (:background "lavender" :foreground "black"))))
  '(show-paren-match ((t (:background "dark cyan"))))
  '(isearch ((t (:background "light green" :foreground "black"))))

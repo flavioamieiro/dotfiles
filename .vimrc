@@ -189,7 +189,7 @@ if has("gui_running")
 
    set mouse=a   " habilita uso pleno do mouse
    colorscheme synic
-   "set gfn=Monaco
+   set gfn=Inconsolata\ 15
 endif
 
 "Configurações específicas do pylint.vim
