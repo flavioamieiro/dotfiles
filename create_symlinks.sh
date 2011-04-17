@@ -77,3 +77,36 @@ then
 else
     echo "$HOME/bin/ not found!"
 fi
+
+create_dir_if_it_does_not_exist "$HOME/.vim/colors/"
+if [ $? -eq 0 ]
+then
+    link .vim/colors/synic.vim
+else
+    echo "$HOME/.vim/colors/ not found!"
+fi
+
+create_dir_if_it_does_not_exist "$HOME/.vim/compiler/"
+if [ $? -eq 0 ]
+then
+    link .vim/compiler/pylint.vim
+else
+    echo "$HOME/.vim/compiler/ not found!"
+fi
+
+create_dir_if_it_does_not_exist "$HOME/.vim/plugin/"
+if [ $? -eq 0 ]
+then
+    link .vim/plugin/NERD_tree.vim
+    link .vim/plugin/NERD_commenter.vim
+else
+    echo "$HOME/.vim/plugin/ not found!"
+fi
+
+create_dir_if_it_does_not_exist "$HOME/.vim/syntax/"
+if [ $? -eq 0 ]
+then
+    link .vim/syntax/arduino.vim
+else
+    echo "$HOME/.vim/syntax/ not found!"
+fi
