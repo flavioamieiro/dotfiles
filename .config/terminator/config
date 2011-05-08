@@ -1,0 +1,22 @@
+[global_config]
+  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+[keybindings]
+  toggle_zoom = <Shift><Control>z
+  scaled_zoom = <Shift><Control>x
+[profiles]
+  [[default]]
+    scrollbar_position = hidden
+    use_system_font = False
+    cursor_color = "#ffffff"
+    foreground_color = "#ffffff"
+    font = Inconsolata Medium 15
+    scrollback_infinite = True
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]
