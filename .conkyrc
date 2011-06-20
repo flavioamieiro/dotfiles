@@ -267,6 +267,14 @@ ${color #969495}${downspeedgraph wlan0 27,120 000000 969495 180} $alignr${color 
 ${color lightgrey}${totaldown wlan0}           $alignr${color lightgrey}${totalup wlan0}
 ${endif}
 
+${if_existing /sys/class/net/ppp0/operstate}
+${color #969495}3G: ${color lightgrey}${addr ppp0}
+
+${color #969495}Down:${color lightgrey} ${downspeed ppp0} k/s $alignr${color #969495} Up:${color lightgrey} ${upspeed ppp0} k/s
+${color #969495}${downspeedgraph ppp0 27,120 000000 969495 180} $alignr${color #969495}${upspeedgraph ppp0 27,120 000000 969495 25}
+${color lightgrey}${totaldown ppp0}           $alignr${color lightgrey}${totalup ppp0}
+${endif}
+
 ${color #969495}Port(s)${alignr}#Connections
 ${color #969495}Inbound: ${color lightgrey}${tcp_portmon 1 32767 count}  ${color #969495}Outbound: ${color lightgrey}${tcp_portmon 32768 61000 count}${alignr}${color #969495}Total: ${color lightgrey}${tcp_portmon 1 65535 count}
 
