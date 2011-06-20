@@ -251,17 +251,21 @@ ${color lightgrey} ${top_mem name 1} ${top_mem pid 1} ${top_mem cpu 1} ${top_mem
 ${color #969495} ${top_mem name 2} ${top_mem pid 2} ${top_mem cpu 2} ${top_mem mem 2}
 ${color #969495} ${top_mem name 3} ${top_mem pid 3} ${top_mem cpu 3} ${top_mem mem 3}
 
+${if_existing /sys/class/net/eth0/operstate up}
 ${color #969495}Network: ${color lightgrey}${addr eth0}
 
 ${color #969495}Down:${color lightgrey} ${downspeed eth0} k/s $alignr${color #969495} Up:${color lightgrey} ${upspeed eth0} k/s
 ${color #969495}${downspeedgraph eth0 27,120 000000 969495 180} $alignr${color #969495}${upspeedgraph eth0 27,120 000000 969495 25}
 ${color lightgrey}${totaldown eth0}           $alignr${color lightgrey}${totalup eth0}
+${endif}
 
+${if_existing /sys/class/net/wlan0/operstate up}
 ${color #969495}Wireless: ${color lightgrey}${addr wlan0}
 
 ${color #969495}Down:${color lightgrey} ${downspeed wlan0} k/s $alignr${color #969495} Up:${color lightgrey} ${upspeed wlan0} k/s
 ${color #969495}${downspeedgraph wlan0 27,120 000000 969495 180} $alignr${color #969495}${upspeedgraph wlan0 27,120 000000 969495 25}
 ${color lightgrey}${totaldown wlan0}           $alignr${color lightgrey}${totalup wlan0}
+${endif}
 
 ${color #969495}Port(s)${alignr}#Connections
 ${color #969495}Inbound: ${color lightgrey}${tcp_portmon 1 32767 count}  ${color #969495}Outbound: ${color lightgrey}${tcp_portmon 32768 61000 count}${alignr}${color #969495}Total: ${color lightgrey}${tcp_portmon 1 65535 count}
