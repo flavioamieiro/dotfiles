@@ -320,6 +320,26 @@
             <execute>~/bin/volume_control toggle</execute>
         </action>
     </keybind>
+    <keybind key="XF86AudioPlay">
+        <action name="Execute">
+            <execute>nyxmms2 toggle</execute>
+        </action>
+    </keybind>
+    <keybind key="XF86AudioStop">
+        <action name="Execute">
+            <execute>nyxmms2 stop</execute>
+        </action>
+    </keybind>
+    <keybind key="XF86AudioPrev">
+        <action name="Execute">
+            <execute>nyxmms2 prev</execute>
+        </action>
+    </keybind>
+    <keybind key="XF86AudioNext">
+        <action name="Execute">
+            <execute>nyxmms2 next</execute>
+        </action>
+    </keybind>
   </keyboard>
   <mouse>
     <dragThreshold>8</dragThreshold>
