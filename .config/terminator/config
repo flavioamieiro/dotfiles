@@ -5,8 +5,10 @@
   scaled_zoom = <Shift><Control>x
 [profiles]
   [[default]]
-    scrollbar_position = hidden
     use_system_font = False
+    visible_bell = True
+    urgent_bell = True
+    scrollbar_position = hidden
     cursor_color = "#ffffff"
     foreground_color = "#ffffff"
     font = Inconsolata Medium 15
