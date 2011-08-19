@@ -275,6 +275,14 @@ ${color #969495}${downspeedgraph ppp0 27,120 000000 969495 180} $alignr${color #
 ${color lightgrey}${totaldown ppp0}           $alignr${color lightgrey}${totalup ppp0}
 ${endif}
 
+${if_existing /sys/class/net/usb0/operstate}
+${color #969495}3G: ${color lightgrey}${addr usb0}
+
+${color #969495}Down:${color lightgrey} ${downspeed usb0} k/s $alignr${color #969495} Up:${color lightgrey} ${upspeed usb0} k/s
+${color #969495}${downspeedgraph usb0 27,120 000000 969495 180} $alignr${color #969495}${upspeedgraph usb0 27,120 000000 969495 25}
+${color lightgrey}${totaldown usb0}           $alignr${color lightgrey}${totalup usb0}
+${endif}
+
 ${color #969495}Port(s)${alignr}#Connections
 ${color #969495}Inbound: ${color lightgrey}${tcp_portmon 1 32767 count}  ${color #969495}Outbound: ${color lightgrey}${tcp_portmon 32768 61000 count}${alignr}${color #969495}Total: ${color lightgrey}${tcp_portmon 1 65535 count}
 
