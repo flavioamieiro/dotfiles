@@ -1,4 +1,4 @@
-. $GLOBALAUTOSTART
+#. $GLOBALAUTOSTART
 #xcompmgr &
 #pypanel &
 (sleep 2 && conky &)
