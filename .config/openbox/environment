@@ -1,0 +1,2 @@
+LANG=pt_BR.UTF8
+eval $(ssh-agent)
