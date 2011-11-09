@@ -54,6 +54,7 @@ link_dir() {
     done
 }
 
+link .ackrc
 link .conkyrc
 link .bashrc
 link .coderc
