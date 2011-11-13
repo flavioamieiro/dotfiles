@@ -1,7 +1,7 @@
-XTerm*FaceName: monaco
+XTerm*FaceName: inconsolata
 !XTerm*FaceSize: 11
-XTerm*FaceSize: 12
-!XTerm*FaceSize: 15
+!XTerm*FaceSize: 12
+XTerm*FaceSize: 15
 
 XTerm*background: black
 XTerm*foreground: white
