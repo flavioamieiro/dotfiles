@@ -67,6 +67,7 @@ link .irbrc
 link .screenrc
 link .skippyrc
 link .tint2rc
+link .tmux.conf
 link .vimrc
 link .Xdefaults
 link .Xmodmap
