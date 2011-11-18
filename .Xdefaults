@@ -9,6 +9,7 @@ XTerm*termName: xterm-256color
 XTerm*geometry: 128x42
 
 
+! Colors from terminator -> http://crunchbanglinux.org/wiki/urxvt
 ! black
 URxvt.color0  : #2E2E34343636
 URxvt.color8  : #555557575353
