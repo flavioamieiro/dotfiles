@@ -284,7 +284,7 @@
     </keybind-->
     <keybind key="C-A-t">
       <action name="Execute">
-        <execute>terminator --geometry 900x600</execute>
+        <execute>urxvt</execute>
       </action>
     </keybind>
     <keybind key="W-space">
