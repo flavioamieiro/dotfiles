@@ -3,7 +3,7 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-[[ $TERM != "screen-256color" ]] && which tmux && tmux && exit
+[[ $TERM != "screen-256color" ]] && which tmux > /dev/null 2>&1 && tmux && exit
 
 alias ls='ls --color=auto'
 export HISTCONTROL=ignoreboth
