@@ -3,7 +3,20 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
-[[ $TERM != "screen-256color" ]] && which tmux > /dev/null 2>&1 && tmux && exit
+
+if [ $TERM != "screen-256color" ]
+then
+    if which tmux > /dev/null 2>&1
+    then
+        # if no session is started, start a new session
+        if test -z ${TMUX}
+        then
+            tmux
+        else
+            tmux has-session
+        fi
+    fi
+fi
 
 alias ls='ls --color=auto'
 export HISTCONTROL=ignoreboth
