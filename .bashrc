@@ -31,4 +31,4 @@ function fontsize() {
 
 which rlwrap > /dev/null 2>&1 && alias guile="rlwrap guile"
 
-source $HOME/.coderc
+#source $HOME/.coderc
