@@ -5,6 +5,10 @@ fi
 
 alias ls='ls --color=auto'
 export HISTCONTROL=ignoreboth
+export HISTSIZE=100000
+export HISTFILESIZE=100000
+shopt -s histappend                      # append to history, don't overwrite it
+
 setterm -bfreq 0
 export EDITOR=vim
 
