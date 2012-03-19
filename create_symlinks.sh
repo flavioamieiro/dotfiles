@@ -76,3 +76,4 @@ link .xinitrc
 link_dir .config
 link_dir bin
 link_dir .vim
+link_dir .mplayer

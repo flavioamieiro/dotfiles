@@ -1,0 +1,5 @@
+[default]
+heartbeat-cmd="xscreensaver-command -deactivate > /dev/null"
+alang=en
+softvol=yes
+softvol-max=400
