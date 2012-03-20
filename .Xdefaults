@@ -42,4 +42,9 @@ URxvt*scrollBar: False
 URxvt*font: xft:inconsolata-14
 URxvt*saveLines: 50000
 
+URxvt.perl-ext:      default,url-select
+URxvt.keysym.M-l:    perl:url-select:select_next
+URxvt.urlLauncher:   firefox
+URxvt.underlineURLs: true
+
 xscreensaver.lock: true
