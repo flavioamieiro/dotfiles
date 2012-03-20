@@ -39,7 +39,7 @@ URxvt*background: black
 URxvt*foreground: white
 URxvt*geometry: 128x40
 URxvt*scrollBar: False
-URxvt*font: xft:inconsolata-15
+URxvt*font: xft:inconsolata-14
 URxvt*saveLines: 50000
 
 xscreensaver.lock: true
