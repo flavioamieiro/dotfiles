@@ -20,4 +20,5 @@ content = urllib.request.urlopen(url).read()
 # re.DOTALL makes . match newlines
 matches = re.search(title_regex, content, re.IGNORECASE | re.DOTALL)
 title = matches.group(1).decode('utf-8').replace('\n', '').strip()
-sys.stdout.write('{0} - {1}'.format(title, url))
+endchar = '\n' if sys.stdout.isatty() else ''
+sys.stdout.write('{0} - {1}{2}'.format(title, url, endchar))
