@@ -59,6 +59,7 @@ if has("gui_running")
 
    colorscheme synic
    set gfn=Inconsolata\ 15
+   set lines=40 columns=90
 endif
 
 " highlight characters after 80 columns
