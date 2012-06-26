@@ -14,6 +14,9 @@
 (setq inhibit-startup-screen t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+(add-to-list 'load-path "~/.emacs.d/ledger/")
+(load "ledger")
+
 ;; I'm using an alias for guile so it is wrapped by nlwrap.
 ;; This causes problems when it's running as the scheme-program
 ;; in emacs, so here we use the original command, skipping
