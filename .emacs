@@ -2,9 +2,9 @@
 (ido-mode t)
 (setq ido-enable-flex-matching t) ;; fuzzy finding no ido
 (global-linum-mode t)
-(tool-bar-mode nil)
-(menu-bar-mode nil)
-(scroll-bar-mode nil)
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
 (setq make-backup-files nil)
 (setq require-final-newline t)
 (setq icomplete-mode t)
