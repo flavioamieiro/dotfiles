@@ -1,28 +1,28 @@
-(require 'ido)
-(ido-mode t)
-(setq ido-enable-flex-matching t) ;; fuzzy finding no ido
-(global-linum-mode t)
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-(scroll-bar-mode -1)
-(setq make-backup-files nil)
-(setq require-final-newline t)
-(setq icomplete-mode t)
-(show-paren-mode t)
-(setq x-select-enable-clipboard t)
-(setq split-width-threshold nil)
-(setq inhibit-startup-screen t)
-(set-frame-size (selected-frame) 90 40)
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-
+;; utils
+;;;;;;;;
 (defun add-to-path-if-exists (file-name)
   (if (file-readable-p file-name)
       (add-to-list 'load-path file-name)))
 
+
+;; modes for diferent filetypes
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (if (add-to-path-if-exists "~/.emacs.d/ledger/")
     (load "ledger"))
 
 (load "auctex.el" nil t t)
+
+
+;; ido
+;;;;;;
+(require 'ido)
+(ido-mode t)
+(setq ido-enable-flex-matching t) ;; fuzzy finding no ido
+(setq icomplete-mode t)
+
+
+;; Inferior programs
+;;;;;;;;;;;;;;;;;;;;
 
 ;; I'm using an alias for guile so it is wrapped by nlwrap.
 ;; This causes problems when it's running as the scheme-program
@@ -30,6 +30,30 @@
 ;; the alias.
 (setq scheme-program-name "\guile")
 
+
+;; Misc
+;;;;;;;
+
+(setq make-backup-files nil)
+(setq require-final-newline t)
+(setq x-select-enable-clipboard t)
+(setq inhibit-startup-screen t)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+
+;; UI customization
+;;;;;;;;;;;;;;;;;;;;
+
+(global-linum-mode t)
+(show-paren-mode t)
+(setq split-width-threshold nil)
+
+(tool-bar-mode -1)
+(menu-bar-mode -1)
+(scroll-bar-mode -1)
+(set-frame-size (selected-frame) 90 40)
+
+;; font settings
 (custom-set-faces
  '(default ((t (:foreground "ivory" :background "black" :family "Inconsolata" :height 140))))
  '(cursor ((t (:background "lavender" :foreground "black"))))
