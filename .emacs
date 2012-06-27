@@ -14,10 +14,12 @@
 (setq inhibit-startup-screen t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-(let ((ledger-dir "~/.emacs.d/ledger/"))
-  (when (file-readable-p ledger-dir)
-    (add-to-list 'load-path ledger-dir)
-    (load "ledger")))
+(defun add-to-path-if-exists (file-name)
+  (if (file-readable-p file-name)
+      (add-to-list 'load-path file-name)))
+
+(if (add-to-path-if-exists "~/.emacs.d/ledger/")
+    (load "ledger"))
 
 ;; I'm using an alias for guile so it is wrapped by nlwrap.
 ;; This causes problems when it's running as the scheme-program
