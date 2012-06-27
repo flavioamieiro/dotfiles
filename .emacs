@@ -22,6 +22,8 @@
 (if (add-to-path-if-exists "~/.emacs.d/ledger/")
     (load "ledger"))
 
+(load "auctex.el" nil t t)
+
 ;; I'm using an alias for guile so it is wrapped by nlwrap.
 ;; This causes problems when it's running as the scheme-program
 ;; in emacs, so here we use the original command, skipping
