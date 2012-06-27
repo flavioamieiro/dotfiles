@@ -12,6 +12,7 @@
 (setq x-select-enable-clipboard t)
 (setq split-width-threshold nil)
 (setq inhibit-startup-screen t)
+(set-frame-size (selected-frame) 90 40)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (defun add-to-path-if-exists (file-name)
