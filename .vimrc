@@ -29,6 +29,7 @@ set smartindent
 inoremap # X#
 set autoindent
 filetype indent on
+set textwidth=79
 
 
 """"""""""""""""""""""""""""""
