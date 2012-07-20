@@ -180,6 +180,9 @@ autocmd BufNewFile,BufRead *.ldg,*.ledger setf ledger | comp ledger
 let g:ledger_maxwidth = 70
 let g:ledger_fillstring = '·'
 
+" LaTeX
+autocmd FileType tex set spell spelllang=pt_br
+
 " Other languages
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
