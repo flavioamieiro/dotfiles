@@ -44,7 +44,7 @@ URxvt*saveLines: 50000
 
 URxvt.perl-ext:      default,url-select
 URxvt.keysym.M-l:    perl:url-select:select_next
-URxvt.urlLauncher:   firefox
-URxvt.underlineURLs: true
+URxvt.url-select.launcher:   firefox
+URxvt.url-select.underline: true
 
 xscreensaver.lock: true
