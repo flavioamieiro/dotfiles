@@ -60,7 +60,6 @@ link .bashrc
 link .coderc
 link .emacs
 link .fehbg
-link .fonts.conf
 link .git-completion.bash
 link .gitconfig
 link .irbrc
