@@ -3,8 +3,7 @@
 import sys
 import re
 import urllib.request
-import html.entities
-import xml.sax.saxutils
+from html.parser import HTMLParser
 
 def usage():
     sys.stderr.write("usage: {0} <url>\n".format(sys.argv[0]))
@@ -23,12 +22,7 @@ content = urllib.request.urlopen(url).read()
 matches = re.search(title_regex, content, re.IGNORECASE | re.DOTALL)
 title = matches.group(1).decode('utf-8').replace('\n', '').strip()
 
-# We need to escape html entities. The dictionary provided in the html.entities
-# module does not have them in the form '&lt;', but just 'lt', so we create a
-# new dictionary using the form xml.sax.saxutils.unescape expects. There should
-# be a better way of doing this.
-entities = {'&{0};'.format(k): v for k, v in html.entities.entitydefs.items()}
-title = xml.sax.saxutils.unescape(title, entities)
+title = HTMLParser().unescape(title)
 
 endchar = '\n' if sys.stdout.isatty() else ''
 sys.stdout.write('{0} - {1}{2}'.format(title, url, endchar))
