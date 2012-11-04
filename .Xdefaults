@@ -42,9 +42,14 @@ URxvt*scrollBar: False
 URxvt*font: xft:inconsolata-14
 URxvt*saveLines: 50000
 
-URxvt.perl-ext:      default,url-select
+URxvt.iso14755: off
+URxvt.perl-ext:      default,url-select,clipboard
 URxvt.keysym.M-l:    perl:url-select:select_next
 URxvt.url-select.launcher:   firefox
 URxvt.url-select.underline: true
+
+URxvt.keysym.M-C-c: perl:clipboard:copy
+URxvt.keysym.M-v: perl:clipboard:paste
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 
 xscreensaver.lock: true
