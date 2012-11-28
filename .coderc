@@ -16,9 +16,9 @@ _virtualenvs()
     local cur="${COMP_WORDS[COMP_CWORD]}"
     COMPREPLY=( $(compgen -W "$PROJECTS" -- ${cur}) )
 }
-complete -o default -o nospace -F _virtualenvs work
+complete -o default -o nospace -F _virtualenvs hack
 
-function work () {
+function hack() {
     # A wrapper for workon (which is already a wrapper)
     # this assumes you have a 'src' dubdir in your
     # virtualenv
