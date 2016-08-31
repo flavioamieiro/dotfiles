@@ -10,3 +10,9 @@
     branch = auto
     pager = true
     ui = auto
+[transfer]
+    fsckobjects = true
+[fetch]
+    fsckobjects = true
+[receive]
+    fsckobjects = true
