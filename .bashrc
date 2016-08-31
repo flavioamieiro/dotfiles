@@ -32,6 +32,10 @@ function fontsize() {
     printf '\33]50;%s\007' "xft:Inconsolata:pixelsize=$1"
 }
 
+function get_redirect() {
+    curl -I -L "$*" | grep -i location | cut -d':' -f2-
+}
+
 which rlwrap > /dev/null 2>&1 && alias guile="rlwrap guile"
 
 #source $HOME/.coderc
