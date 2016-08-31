@@ -34,9 +34,10 @@
     <!-- with Smart placement on a multi-monitor system, try to place new windows
        on: 'Any' - any monitor, 'Mouse' - where the mouse is, 'Active' - where
        the active window is -->
+    <primaryMonitor/>
   </placement>
   <theme>
-    <name>Surreal</name>
+    <name>Clearlooks</name>
     <titleLayout>NLDSIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -69,7 +70,7 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuHeader">
-      <name>Monaco</name>
+      <name>Sans</name>
       <size>9</size>
       <!-- font size in points -->
       <weight>Normal</weight>
@@ -78,7 +79,7 @@
       <!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuItem">
-      <name>Monaco</name>
+      <name>Sans</name>
       <size>9</size>
       <!-- font size in points -->
       <weight>Normal</weight>
@@ -86,14 +87,14 @@
       <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
     </font>
-    <font place="OnScreenDisplay">
-      <name>sans</name>
-      <size>9</size>
-      <!-- font size in points -->
-      <weight>bold</weight>
-      <!-- 'bold' or 'normal' -->
-      <slant>normal</slant>
-      <!-- 'italic' or 'normal' -->
+    <font place="ActiveOnScreenDisplay">
+      <name/>
+    </font>
+    <font place="InactiveOnScreenDisplay">
+      <name>Sans</name>
+      <size>8</size>
+      <weight/>
+      <slant/>
     </font>
   </theme>
   <desktops>
@@ -306,39 +307,39 @@
     </keybind>
     <!-- Keybindings for volume -->
     <keybind key="XF86AudioLowerVolume">
-        <action name="Execute">
-            <execute>~/bin/volume_control down</execute>
-        </action>
+      <action name="Execute">
+        <execute>~/bin/volume_control down</execute>
+      </action>
     </keybind>
     <keybind key="XF86AudioRaiseVolume">
-        <action name="Execute">
-            <execute>~/bin/volume_control up</execute>
-        </action>
+      <action name="Execute">
+        <execute>~/bin/volume_control up</execute>
+      </action>
     </keybind>
     <keybind key="XF86AudioMute">
-        <action name="Execute">
-            <execute>~/bin/volume_control toggle</execute>
-        </action>
+      <action name="Execute">
+        <execute>~/bin/volume_control toggle</execute>
+      </action>
     </keybind>
     <keybind key="XF86AudioPlay">
-        <action name="Execute">
-            <execute>nyxmms2 toggle</execute>
-        </action>
+      <action name="Execute">
+        <execute>nyxmms2 toggle</execute>
+      </action>
     </keybind>
     <keybind key="XF86AudioStop">
-        <action name="Execute">
-            <execute>nyxmms2 stop</execute>
-        </action>
+      <action name="Execute">
+        <execute>nyxmms2 stop</execute>
+      </action>
     </keybind>
     <keybind key="XF86AudioPrev">
-        <action name="Execute">
-            <execute>nyxmms2 prev</execute>
-        </action>
+      <action name="Execute">
+        <execute>nyxmms2 prev</execute>
+      </action>
     </keybind>
     <keybind key="XF86AudioNext">
-        <action name="Execute">
-            <execute>nyxmms2 next</execute>
-        </action>
+      <action name="Execute">
+        <execute>nyxmms2 next</execute>
+      </action>
     </keybind>
   </keyboard>
   <mouse>
