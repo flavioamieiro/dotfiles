@@ -51,11 +51,11 @@
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
-(set-frame-size (selected-frame) 90 40)
+(setq default-frame-alist '((width . 100) (height . 35)))
 
 ;; font settings
 (custom-set-faces
- '(default ((t (:foreground "ivory" :background "black" :family "Inconsolata" :height 140))))
+ '(default ((t (:foreground "ivory" :background "black" :family "Inconsolata" :height 120))))
  '(cursor ((t (:background "lavender" :foreground "black"))))
  '(show-paren-match ((t (:background "dark cyan"))))
  '(isearch ((t (:background "light green" :foreground "black"))))
