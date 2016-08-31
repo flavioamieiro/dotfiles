@@ -1,6 +1,7 @@
 export WORKON_HOME=$HOME/.virtualenvs
 export PIP_DOWNLOAD_CACHE="$HOME/.pip/"
-source /usr/bin/virtualenvwrapper.sh
+#source /usr/bin/virtualenvwrapper.sh
+source /etc/bash_completion.d/virtualenvwrapper
 
 _fab_list(){
     # auto completion for fabfiles
@@ -27,7 +28,7 @@ function hack() {
     # subshell using it as rcfile, and goes to the src
     # dir in your virtualenv
 
-
+    virtualenvwrapper_load
     typeset env_name="$1"
     if [ "$env_name" = "" ]
     then
