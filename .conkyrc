@@ -20,7 +20,7 @@ out_to_console no
 use_xft yes
 
 # Xft font when Xft is enabled
-xftfont Bitstream Vera Sans Mono:size=8
+xftfont Bitstream Vera Sans Mono:size=6
 #xftfont Monaco_Linux:size=8
 
 own_window_transparent no
