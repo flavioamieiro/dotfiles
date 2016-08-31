@@ -38,4 +38,6 @@ function get_redirect() {
 
 which rlwrap > /dev/null 2>&1 && alias guile="rlwrap guile"
 
-#source $HOME/.coderc
+export GOPATH="$HOME/Installs/go/"
+
+source $HOME/.coderc
