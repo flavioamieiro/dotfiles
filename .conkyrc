@@ -203,90 +203,96 @@ xmms_player bmp
 # stuff after 'TEXT' will be formatted on screen
 #${font Grunge:size=12}${time %a  %b  %d}${alignr -25}${time %k:%M}
 
+color1 969495
+color2 ffffff
 
 #A primeira linha de TEXT era:
-#${color #969495}$sysname $kernel $machine - $nodename
+#${color1}$sysname $kernel $machine - $nodename
 
-#${color #969495}$sysname ${execi 100000 uname -r | cut -d . -f1-4} $machine - $nodename
+#${color1}$sysname ${execi 100000 uname -r | cut -d . -f1-4} $machine - $nodename
 
 TEXT
-${color #969495}$sysname ${execi 100000 uname -r | cut -d . -f1-4} $machine - $nodename
-${color #969495}Uptime:${color lightgrey} $uptime ${color #969495} Load:${color lightgrey} $loadavg
+${color1}$sysname ${execi 100000 uname -r | cut -d . -f1-4} $machine - $nodename
+${color1}Uptime:${color2} $uptime ${color1} Load:${color2} $loadavg
 
-#${color #969495}${execi 1000 cat /proc/cpuinfo | grep 'model name' | sed -e 's/model name.*: //'}
-#${alignr}${color lightgrey}${freq_g 1}Mhz | ${freq_g 2}Mhz
+#${color1}${execi 1000 cat /proc/cpuinfo | grep 'model name' | sed -e 's/model name.*: //'}
+#${alignr}${color2}${freq_g 1}Mhz | ${freq_g 2}Mhz
 #
 
 ### Old cpu bars
-# ${color 969495}Core 1:${color 969495} ${color lightgrey}${cpu cpu1}% ${color 969495}${cpubar cpu1}
-# ${color 969495}${cpugraph cpu1 000000 969495}
-# ${color 969495}Core 2:${color 969495} ${color lightgrey}${cpu cpu2}% ${color 969495}${cpubar cpu2}
-# ${color 969495}${cpugraph cpu2 000000 969495}
+# ${color1}Core 1:${color1} ${color2}${cpu cpu1}% ${color1}${cpubar cpu1}
+# ${color1}${cpugraph cpu1 000000 color1}
+# ${color1}Core 2:${color1} ${color2}${cpu cpu2}% ${color1}${cpubar cpu2}
+# ${color1}${cpugraph cpu2 000000 color1}
 ###
 
-${color 969495}Core 1:${color 969495} ${color lightgrey}${cpu cpu1}% ${alignr 67}${color 969495} ${color 969495}Core 2:${color 969495} ${color lightgrey}${cpu cpu2}% ${color 969495}
+${color1}Core 1:${color1} ${color2}${cpu cpu1}% ${alignr 67}${color1} ${color1}Core 2:${color1} ${color2}${cpu cpu2}% ${color1}
 ${cpubar cpu1 3,120} ${alignr 7} ${cpubar cpu2 3,120}
-${color 969495}${cpugraph cpu1 30,120 000000 969495} ${alignr 7} ${color 969495}${cpugraph cpu2 30,120 000000 969495}
-${color 969495}Core 3:${color 969495} ${color lightgrey}${cpu cpu3}% ${alignr 67} ${color 969495} ${color 969495}Core 4:${color 969495} ${color lightgrey}${cpu cpu4}% ${color 969495}
+${color1}${cpugraph cpu1 30,120 000000 color1} ${alignr 7} ${color1}${cpugraph cpu2 30,120 000000 color1}
+${color1}Core 3:${color1} ${color2}${cpu cpu3}% ${alignr 67} ${color1} ${color1}Core 4:${color1} ${color2}${cpu cpu4}% ${color1}
 ${cpubar cpu3 3,120} ${alignr 7} ${cpubar cpu4 3,120}
-${color 969495}${cpugraph cpu3 30,120 000000 969495} ${alignr 7} ${color 969495}${cpugraph cpu4 30,120 000000 969495}
-${color 969495}Processes:${color lightgrey} $processes  ${color 969495}Run:${color lightgrey} $running_processes ${color 969495}CPU1:${color lightgrey} ${execi 6 /usr/bin/sensors | grep Core\ 0| paste -s | cut -c15-16,19}${color lightgrey} ${color 969495}CPU2:${color lightgrey} ${execi 6 /usr/bin/sensors | grep Core\ 1| paste -s | cut -c15-16,19}
+${color1}${cpugraph cpu3 30,120 000000 color1} ${alignr 7} ${color1}${cpugraph cpu4 30,120 000000 color1}
+${cpubar cpu5 3,120} ${alignr 7} ${cpubar cpu6 3,120}
+${color1}${cpugraph cpu5 30,120 000000 color1} ${alignr 7} ${color1}${cpugraph cpu6 30,120 000000 color1}
+${cpubar cpu7 3,120} ${alignr 7} ${cpubar cpu8 3,120}
+${color1}${cpugraph cpu7 30,120 000000 color1} ${alignr 7} ${color1}${cpugraph cpu8 30,120 000000 color1}
+${color1}Processes:${color2} $processes  ${color1}Run:${color2} $running_processes ${color1}CPU1:${color2} ${execi 6 /usr/bin/sensors | grep Core\ 0| paste -s | cut -c15-16,19}${color2} ${color1}CPU2:${color2} ${execi 6 /usr/bin/sensors | grep Core\ 1| paste -s | cut -c15-16,19}
 
-${color #969495}RAM:${color lightgrey} $mem/$memmax - $memperc% ${alignr}${color #969495}${membar 5,70}
-${color #969495}SWP:${color lightgrey} $swap/$swapmax - $swapperc% ${alignr}${color #969495}${swapbar 5,95}
+${color1}RAM:${color2} $mem/$memmax - $memperc% ${alignr}${color1}${membar 5,70}
+${color1}SWP:${color2} $swap/$swapmax - $swapperc% ${alignr}${color1}${swapbar 5,95}
 
-${color #969495}HD IO: ${color lightgrey}${diskio} ${alignr}${color #969495}Temperature: ${color lightgrey}
-${color #969495}${diskiograph 000000 969495}
+${color1}HD IO: ${color2}${diskio} ${alignr}${color1}Temperature: ${color2}
+${color1}${diskiograph 000000 color1}
 
-${color #969495}Hard Disks:
-${color #969495} Root ${color lightgrey}${fs_used /}/${fs_size /}${alignr}${color #969495}${fs_bar 5,110 /}
-${color #969495} Home ${color lightgrey}${fs_used /home}/${fs_size /home}${alignr}${color #969495}${fs_bar 5,110 /home}
+${color1}Hard Disks:
+${color1} Root ${color2}${fs_used /}/${fs_size /}${alignr}${color1}${fs_bar 5,110 /}
+${color1} Home ${color2}${fs_used /home}/${fs_size /home}${alignr}${color1}${fs_bar 5,110 /home}
 
-${color #969495}CPU Usage         PID     CPU%   MEM%
-${color lightgrey} ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
-${color #969495} ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
-${color #969495} ${top name 3} ${top pid 3} ${top cpu 3} ${top mem 3}
-${color #969495}Mem Usage
-${color lightgrey} ${top_mem name 1} ${top_mem pid 1} ${top_mem cpu 1} ${top_mem mem 1}
-${color #969495} ${top_mem name 2} ${top_mem pid 2} ${top_mem cpu 2} ${top_mem mem 2}
-${color #969495} ${top_mem name 3} ${top_mem pid 3} ${top_mem cpu 3} ${top_mem mem 3}
+${color1}CPU Usage         PID     CPU%   MEM%
+${color2} ${top name 1} ${top pid 1} ${top cpu 1} ${top mem 1}
+${color1} ${top name 2} ${top pid 2} ${top cpu 2} ${top mem 2}
+${color1} ${top name 3} ${top pid 3} ${top cpu 3} ${top mem 3}
+${color1}Mem Usage
+${color2} ${top_mem name 1} ${top_mem pid 1} ${top_mem cpu 1} ${top_mem mem 1}
+${color1} ${top_mem name 2} ${top_mem pid 2} ${top_mem cpu 2} ${top_mem mem 2}
+${color1} ${top_mem name 3} ${top_mem pid 3} ${top_mem cpu 3} ${top_mem mem 3}
 
-${if_existing /sys/class/net/eth0/operstate up}
-${color #969495}Network: ${color lightgrey}${addr eth0}
+${if_existing /sys/class/net/eth1/operstate up}
+${color1}Network: ${color2}${addr eth1}
 
-${color #969495}Down:${color lightgrey} ${downspeed eth0} k/s $alignr${color #969495} Up:${color lightgrey} ${upspeed eth0} k/s
-${color #969495}${downspeedgraph eth0 27,120 000000 969495 180} $alignr${color #969495}${upspeedgraph eth0 27,120 000000 969495 25}
-${color lightgrey}${totaldown eth0}           $alignr${color lightgrey}${totalup eth0}
+${color1}Down:${color2} ${downspeed eth1} k/s $alignr${color1} Up:${color2} ${upspeed eth1} k/s
+${color1}${downspeedgraph eth1 27,120 000000 color1 180} $alignr${color1}${upspeedgraph eth1 27,120 000000 color1 25}
+${color2}${totaldown eth1}           $alignr${color2}${totalup eth1}
 ${endif}
 
 ${if_existing /sys/class/net/wlan0/operstate up}
-${color #969495}Wireless: ${color lightgrey}${addr wlan0}
+${color1}Wireless: ${color2}${addr wlan0}
 
-${color #969495}Down:${color lightgrey} ${downspeed wlan0} k/s $alignr${color #969495} Up:${color lightgrey} ${upspeed wlan0} k/s
-${color #969495}${downspeedgraph wlan0 27,120 000000 969495 180} $alignr${color #969495}${upspeedgraph wlan0 27,120 000000 969495 25}
-${color lightgrey}${totaldown wlan0}           $alignr${color lightgrey}${totalup wlan0}
+${color1}Down:${color2} ${downspeed wlan0} k/s $alignr${color1} Up:${color2} ${upspeed wlan0} k/s
+${color1}${downspeedgraph wlan0 27,120 000000 color1 180} $alignr${color1}${upspeedgraph wlan0 27,120 000000 color1 25}
+${color2}${totaldown wlan0}           $alignr${color2}${totalup wlan0}
 ${endif}
 
 ${if_existing /sys/class/net/ppp0/operstate}
-${color #969495}3G: ${color lightgrey}${addr ppp0}
+${color1}3G: ${color2}${addr ppp0}
 
-${color #969495}Down:${color lightgrey} ${downspeed ppp0} k/s $alignr${color #969495} Up:${color lightgrey} ${upspeed ppp0} k/s
-${color #969495}${downspeedgraph ppp0 27,120 000000 969495 180} $alignr${color #969495}${upspeedgraph ppp0 27,120 000000 969495 25}
-${color lightgrey}${totaldown ppp0}           $alignr${color lightgrey}${totalup ppp0}
+${color1}Down:${color2} ${downspeed ppp0} k/s $alignr${color1} Up:${color2} ${upspeed ppp0} k/s
+${color1}${downspeedgraph ppp0 27,120 000000 color1 180} $alignr${color1}${upspeedgraph ppp0 27,120 000000 color1 25}
+${color2}${totaldown ppp0}           $alignr${color2}${totalup ppp0}
 ${endif}
 
 ${if_existing /sys/class/net/usb0/operstate}
-${color #969495}3G: ${color lightgrey}${addr usb0}
+${color1}3G: ${color2}${addr usb0}
 
-${color #969495}Down:${color lightgrey} ${downspeed usb0} k/s $alignr${color #969495} Up:${color lightgrey} ${upspeed usb0} k/s
-${color #969495}${downspeedgraph usb0 27,120 000000 969495 180} $alignr${color #969495}${upspeedgraph usb0 27,120 000000 969495 25}
-${color lightgrey}${totaldown usb0}           $alignr${color lightgrey}${totalup usb0}
+${color1}Down:${color2} ${downspeed usb0} k/s $alignr${color1} Up:${color2} ${upspeed usb0} k/s
+${color1}${downspeedgraph usb0 27,120 000000 color1 180} $alignr${color1}${upspeedgraph usb0 27,120 000000 color1 25}
+${color2}${totaldown usb0}           $alignr${color2}${totalup usb0}
 ${endif}
 
-${color #969495}Port(s)${alignr}#Connections
-${color #969495}Inbound: ${color lightgrey}${tcp_portmon 1 32767 count}  ${color #969495}Outbound: ${color lightgrey}${tcp_portmon 32768 61000 count}${alignr}${color #969495}Total: ${color lightgrey}${tcp_portmon 1 65535 count}
+${color1}Port(s)${alignr}#Connections
+${color1}Inbound: ${color2}${tcp_portmon 1 32767 count}  ${color1}Outbound: ${color2}${tcp_portmon 32768 61000 count}${alignr}${color1}Total: ${color2}${tcp_portmon 1 65535 count}
 
-${color #969495}Inbound Connection ${alignr} Local Service/Port${color lightgrey}
+${color1}Inbound Connection ${alignr} Local Service/Port${color2}
  ${tcp_portmon 1 32767 rhost 0} ${alignr} ${tcp_portmon 1 32767 lservice 0}
  ${tcp_portmon 1 32767 rhost 1} ${alignr} ${tcp_portmon 1 32767 lservice 1}
  ${tcp_portmon 1 32767 rhost 2} ${alignr} ${tcp_portmon 1 32767 lservice 2}
@@ -294,5 +300,5 @@ ${color #969495}Inbound Connection ${alignr} Local Service/Port${color lightgrey
  ${tcp_portmon 1 32767 rhost 4} ${alignr} ${tcp_portmon 1 32767 lservice 4}
  ${tcp_portmon 1 32767 rhost 5} ${alignr} ${tcp_portmon 1 32767 lservice 5}
  ${tcp_portmon 1 32767 rhost 6} ${alignr} ${tcp_portmon 1 32767 lservice 6}
-${color #969495}------------------------------------------${color lightgrey}
+${color1}------------------------------------------${color2}
 Battery: $battery
