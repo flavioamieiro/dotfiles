@@ -1,6 +1,7 @@
 [user]
     name = Flavio Amieiro
     email = amieiro.flavio@gmail.com
+	signingkey = 0488FBEF
 [core]
     pager = less -FXRS
 [color]
