@@ -59,7 +59,7 @@ if has("gui_running")
    set guioptions-=b
 
    colorscheme synic
-   set gfn=Inconsolata\ 15
+   set gfn=Inconsolata\ 12
    set lines=40 columns=90
 endif
 
