@@ -161,11 +161,6 @@ set path+=
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 let g:pydiction_location='/home/flavio/.vim/complete_dict'
 
-" pylint.vim configurations
-autocmd FileType python compiler pylint "Use pylint as a Python compiler
-let g:pylint_cwindow = 0
-let g:pylint_onwrite = 0
-
 " ledger
 autocmd BufNewFile,BufRead *.ldg,*.ledger setf ledger | comp ledger
 let g:ledger_maxwidth = 70
