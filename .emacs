@@ -39,6 +39,11 @@
 ;; the alias.
 (setq scheme-program-name "\guile")
 
+;; Processing
+(setq processing-location "~/bin/processing-java")
+(setq processing-application-dir "~/Installs/processing/")
+(setq processing-sketchbook-dir "~/sketchbook/")
+
 
 ;; Misc
 ;;;;;;;
