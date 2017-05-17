@@ -45,10 +45,6 @@ set showcmd
 set laststatus=1
 
 colorscheme synic
-" For some reason synic colorscheme does not work on gnome-terminal
-if ($COLORTERM == 'gnome-terminal')
-    colorscheme desert
-endif
 
 if has("gui_running")
    set guioptions-=T " disable toolbar
@@ -58,7 +54,6 @@ if has("gui_running")
    set guioptions-=r
    set guioptions-=b
 
-   colorscheme synic
    set gfn=Inconsolata\ 12
    set lines=40 columns=90
 endif
