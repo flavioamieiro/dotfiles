@@ -10,6 +10,8 @@
 (package-initialize)
 (add-to-list 'package-archives
 	     '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives
+             '("elpy" . "http://jorgenschaefer.github.io/packages/"))
 
 ;; modes for diferent filetypes
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -18,6 +20,8 @@
 
 (load "auctex.el" nil t t)
 
+(elpy-enable)
+(elpy-use-ipython)
 
 ;; ido
 ;;;;;;
@@ -25,7 +29,6 @@
 (ido-mode t)
 (setq ido-enable-flex-matching t) ;; fuzzy finding no ido
 (setq icomplete-mode t)
-
 
 ;; Inferior programs
 ;;;;;;;;;;;;;;;;;;;;
