@@ -2,7 +2,7 @@
 #xcompmgr &
 #pypanel &
 (sleep 2 && conky &)
-. $HOME/.fehbg &
+xsetroot -solid black
 tint2 -c ~/.tint2rc &
 /usr/bin/xscreensaver -no-splash &
 setxkbmap br
