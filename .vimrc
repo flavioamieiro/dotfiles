@@ -144,8 +144,6 @@ autocmd BufWritePre * :%s/\s\+$//e
 """"""""""""
 inoremap <C-space> <C-p>
 imap <Nul> <C-p>
-map <F9> :NERDTreeMirror<return>
-map <F10> :NERDTreeToggle<return>
 
 
 """"""""""""""""""""""""""""""""""""
@@ -162,8 +160,6 @@ set path+=
 "Python code completion
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 let g:pydiction_location='/home/flavio/.vim/complete_dict'
-
-let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 
 " pylint.vim configurations
 autocmd FileType python compiler pylint "Use pylint as a Python compiler
