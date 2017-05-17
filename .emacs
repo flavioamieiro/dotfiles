@@ -4,6 +4,12 @@
   (if (file-readable-p file-name)
       (add-to-list 'load-path file-name)))
 
+;; adds MELPA repos
+;;;;;;;;;;;;;;;;;;;
+(require 'package)
+(package-initialize)
+(add-to-list 'package-archives
+	     '("melpa" . "https://melpa.org/packages/"))
 
 ;; modes for diferent filetypes
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
