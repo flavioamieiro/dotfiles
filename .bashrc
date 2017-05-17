@@ -15,7 +15,7 @@ export EDITOR=vim
 #set -o vi
 
 source ~/.git-completion.bash
-export PS1='[\u@\h \w$(__git_ps1 "(%s)")]\$ '
+export PS1='[\u@\h \w$(__git_ps1 "(%s)")] \$ '
 if [ $TERM = "screen" ]
 then
     # If we're using screen, include <ESC>k<ESC>\
