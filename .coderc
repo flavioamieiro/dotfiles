@@ -48,4 +48,9 @@ function hack() {
     bash --rcfile ~/.virtualenvrc
 }
 
+export PIPSI_HOME="$HOME/.virtualenvs/pipsi"
+export PIPSI_BIN_DIR="$HOME/bin"
+export PIPENV_SHELL_FANCY=1
+export PIPENV_DEFAULT_PYTHON_VERSION="3"
+
 #[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"

@@ -26,6 +26,10 @@ then
     # are not displayed correctly.
     export PS1="\[\033k\]\[\033\ \]\[\033[G\]$PS1"
 fi
+if [[ -n $VIRTUAL_ENV ]]
+then
+    export PS1="($(basename $VIRTUAL_ENV))$PS1"
+fi
 
 # Change urxvt font size
 function fontsize() {
