@@ -57,6 +57,9 @@
 
 (ssbb-pyenv-hook)
 
+(require 'rust-mode)
+(add-hook 'rust-mode-hook (lambda () (setq indent-tabs-mode nil)))
+
 ;; ido
 ;;;;;;
 (require 'ido)
