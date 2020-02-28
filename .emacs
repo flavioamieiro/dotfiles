@@ -27,6 +27,10 @@
 	    (package-install package)))
       required-packages)
 
+;; Base changes
+;;;;;;;;;;;;;;;
+(require 'better-defaults)
+
 ;; modes for diferent filetypes
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (if (add-to-path-if-exists "~/.emacs.d/ledger/")
@@ -62,9 +66,6 @@
 ;; Misc
 ;;;;;;;
 
-(setq make-backup-files nil)
-(setq require-final-newline t)
-(setq x-select-enable-clipboard t)
 (setq inhibit-startup-screen t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
@@ -73,12 +74,8 @@
 ;;;;;;;;;;;;;;;;;;;;
 
 (global-linum-mode t)
-(show-paren-mode t)
 (setq split-width-threshold nil)
 
-(tool-bar-mode -1)
-(menu-bar-mode -1)
-(scroll-bar-mode -1)
 (setq default-frame-alist '((width . 100) (height . 35)))
 
 ;; font settings
