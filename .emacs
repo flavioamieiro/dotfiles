@@ -93,6 +93,8 @@
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
 (global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "<f5>") 'recompile)
+
 
 ;; UI customization
 ;;;;;;;;;;;;;;;;;;;;
