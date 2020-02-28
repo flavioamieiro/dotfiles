@@ -39,7 +39,23 @@
 (load "auctex.el" nil t t)
 
 (elpy-enable)
-(elpy-use-ipython)
+;(elpy-use-ipython)
+(pyenv-mode)
+
+(when (require 'flycheck nil t)
+  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+  (add-hook 'elpy-mode-hook 'flycheck-mode))
+(add-hook 'elpy-mode-hook #'hs-minor-mode)
+
+(defun ssbb-pyenv-hook ()
+  "Automatically activates pyenv version if .python-version file exists."
+  (f-traverse-upwards
+   (lambda (path)
+     (let ((pyenv-version-path (f-expand ".python-version" path)))
+       (if (f-exists? pyenv-version-path)
+	   (pyenv-mode-set (s-trim (f-read-text pyenv-version-path 'utf-8))))))))
+
+(ssbb-pyenv-hook)
 
 ;; ido
 ;;;;;;
