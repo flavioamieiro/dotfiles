@@ -57,3 +57,5 @@ export PIPENV_DEFAULT_PYTHON_VERSION="3"
 export PATH="/home/amieiro/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
+
+export PYTHONBREAKPOINT=ipdb.set_trace
