@@ -104,23 +104,7 @@
 
 (setq default-frame-alist '((width . 100) (height . 35)))
 
-;; font settings
-(custom-set-faces
- '(default ((t (:foreground "ivory" :background "black" :family "Inconsolata" :height 120))))
- '(cursor ((t (:background "lavender" :foreground "black"))))
- '(show-paren-match ((t (:background "dark cyan"))))
- '(isearch ((t (:background "light green" :foreground "black"))))
- '(linum ((t (:foreground "LightBlue3"))))
- '(font-lock-constant-face ((t (:foreground "MistyRose3"))))
- '(font-lock-string-face ((t (:foreground "LightBlue3"))))
- '(font-lock-builtin-face ((t (:foreground "Goldenrod"))))
- ;'(font-lock-builtin-face ((t (:foreground "ivory"))))
- '(font-lock-keyword-face ((t (:foreground "khaki1"))))
- '(font-lock-preprocessor-face ((t (:foreground "ffa0a0"))))
- '(font-lock-comment-face ((t (:foreground "#62c600"))))
- '(font-lock-type-face ((t (:foreground "navajo white"))))
- '(font-lock-function-name-face ((t (:foreground "LightBlue4" :weight bold))))
-)
+(load-theme 'jbeans t)
 
 (setq split-height-threshold nil)
 (setq split-width-threshold 160)
