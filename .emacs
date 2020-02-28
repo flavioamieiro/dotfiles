@@ -121,3 +121,6 @@
  '(font-lock-type-face ((t (:foreground "navajo white"))))
  '(font-lock-function-name-face ((t (:foreground "LightBlue4" :weight bold))))
 )
+
+(setq split-height-threshold nil)
+(setq split-width-threshold 160)
