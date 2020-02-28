@@ -7,11 +7,25 @@
 ;; adds MELPA repos
 ;;;;;;;;;;;;;;;;;;;
 (require 'package)
-(package-initialize)
 (add-to-list 'package-archives
 	     '("melpa" . "https://melpa.org/packages/"))
 (add-to-list 'package-archives
-             '("elpy" . "http://jorgenschaefer.github.io/packages/"))
+             '("elpy" . "https://jorgenschaefer.github.io/packages/"))
+(package-initialize)
+
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
+(defvar required-packages
+  '(better-defaults
+    material-theme
+    elpy
+    flycheck))
+
+(mapc #'(lambda (package)
+	  (unless (package-installed-p package)
+	    (package-install package)))
+      required-packages)
 
 ;; modes for diferent filetypes
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
