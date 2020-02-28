@@ -20,7 +20,8 @@
   '(better-defaults
     material-theme
     elpy
-    flycheck))
+    flycheck
+    expand-region))
 
 (mapc #'(lambda (package)
 	  (unless (package-installed-p package)
@@ -88,6 +89,8 @@
 (setq inhibit-startup-screen t)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+(require 'expand-region)
+(global-set-key (kbd "C-=") 'er/expand-region)
 
 ;; UI customization
 ;;;;;;;;;;;;;;;;;;;;
