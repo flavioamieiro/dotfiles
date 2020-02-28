@@ -21,7 +21,8 @@
     material-theme
     elpy
     flycheck
-    expand-region))
+    expand-region
+    magit))
 
 (mapc #'(lambda (package)
 	  (unless (package-installed-p package)
@@ -91,6 +92,7 @@
 
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
+(global-set-key (kbd "C-x g") 'magit-status)
 
 ;; UI customization
 ;;;;;;;;;;;;;;;;;;;;
