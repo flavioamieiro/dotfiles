@@ -3,7 +3,8 @@
 #pypanel &
 (sleep 2 && conky &)
 xsetroot -solid black
-tint2 -c ~/.tint2rc &
+# tint2 -c ~/.tint2rc &
+polybar main &
 /usr/bin/xscreensaver -no-splash &
 setxkbmap br
 # Isso não funcionou no .xinitrc, mas devia estar lá.
