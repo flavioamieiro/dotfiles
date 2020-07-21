@@ -27,7 +27,7 @@ primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
 
-[bar/bottom]
+[bar/main]
 override-redirect = false
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
