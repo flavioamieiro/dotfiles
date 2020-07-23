@@ -55,7 +55,7 @@ font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = Siji:pixelsize=10;1
 
-modules-left = ewmh
+modules-left = ewmh shortcuts
 modules-center = xwindow
 modules-right = filesystem pulseaudio memory cpu wlan eth battery temperature date
 
@@ -89,6 +89,16 @@ label-urgent-underline = #9b0a20
 label-empty = %icon%
 label-empty-foreground = #55
 
+[module/shortcuts]
+type = custom/menu
+
+label-open = 
+label-close = 
+label-separator = |
+label-separator-foreground = ${colors.foreground-alt}
+
+menu-0-0 = ""
+menu-0-0-exec = emacs ~/notas.org &
 
 [module/xwindow]
 type = internal/xwindow
