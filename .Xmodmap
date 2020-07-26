@@ -5,3 +5,6 @@ keysym Caps_Lock = Control_L
 add Control = Control_L
 !keycode 105 = 64
 keycode 105 = slash question
+keycode 134 = slash question
+keycode 148 = XF86AudioPlay
+keycode 163 = XF86AudioLowerVolume
