@@ -57,7 +57,7 @@ font-2 = Siji:pixelsize=10;1
 
 modules-left = ewmh shortcuts
 modules-center = xwindow
-modules-right = filesystem pulseaudio memory cpu wlan eth battery temperature date
+modules-right = media-control pulseaudio wlan eth battery temperature date
 
 tray-position = right
 tray-padding = 2
@@ -227,10 +227,15 @@ format-prefix-foreground = ${colors.foreground-alt}
 
 label = %date% %time%
 
+[module/media-control]
+type = custom/script
+exec = player-mpris-tail.py -f ' %{F#444}|%{F-} {icon} {:artist:t30:{artist}:}{:artist: - :}{:t30:{title}:}  %{F#444}|%{F-} %{A1:player-mpris-tail.py previous:}  %{A} %{A1:player-mpris-tail.py play-pause:} {icon-reversed} %{A} %{A1:player-mpris-tail.py next:}  %{A} %{F#444}|%{F-} ' --icon-playing '' --icon-paused '' --icon-stopped ''
+tail = true
+
 [module/pulseaudio]
 type = internal/pulseaudio
 
-format-volume = <label-volume> <bar-volume>
+format-volume = <label-volume> <bar-volume>  %{F#444}|%{F-}
 label-volume = 
 label-volume-foreground = ${root.foreground}
 
