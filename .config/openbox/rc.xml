@@ -323,22 +323,22 @@
     </keybind>
     <keybind key="XF86AudioPlay">
       <action name="Execute">
-        <execute>nyxmms2 toggle</execute>
+        <execute>playerctl play-pause</execute>
       </action>
     </keybind>
     <keybind key="XF86AudioStop">
       <action name="Execute">
-        <execute>nyxmms2 stop</execute>
+        <execute>playerctl stop</execute>
       </action>
     </keybind>
     <keybind key="XF86AudioPrev">
       <action name="Execute">
-        <execute>nyxmms2 prev</execute>
+        <execute>playerctl previous</execute>
       </action>
     </keybind>
     <keybind key="XF86AudioNext">
       <action name="Execute">
-        <execute>nyxmms2 next</execute>
+        <execute>playerctl next</execute>
       </action>
     </keybind>
   </keyboard>
