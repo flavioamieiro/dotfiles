@@ -1,0 +1,35 @@
+#!/usr/bin/env python3
+import ewmh
+import sys
+
+PROGNAME = "ewmh_helper"
+
+DEFAULT_ICON = ""
+
+ICONS = {
+    "urxvt": "",
+    "emacs": "",
+    "chromium": "",
+    "navigator": "",
+}
+
+def get_window_text(window):
+    icon = ICONS.get(window.get_wm_class()[0].lower(), DEFAULT_ICON)
+    action_open = f"%{{A1:{PROGNAME} {window.id}:}}"
+    action_close = "%{A}"
+    return f"{action_open}{icon}{action_close}"
+
+manager = ewmh.EWMH()
+
+current_desktop = manager.getCurrentDesktop()
+
+current_windows = [window for window in manager.getClientList() if manager.getWmDesktop(window) == current_desktop]
+
+
+if len(sys.argv) > 1:
+    window_id = int(sys.argv[1])
+    window = manager._createWindow(window_id)
+    manager.setActiveWindow(window)
+    manager.display.flush()
+
+sys.stdout.write(" ".join(get_window_text(window) for window in current_windows))

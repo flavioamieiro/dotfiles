@@ -55,7 +55,7 @@ font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = Siji:pixelsize=10;1
 
-modules-left = ewmh shortcuts
+modules-left = ewmh shortcuts list-windows
 modules-center = xwindow
 modules-right = media-control pulseaudio wlan eth battery temperature date
 
@@ -231,6 +231,11 @@ label = %date% %time%
 type = custom/script
 exec = player-mpris-tail.py -f ' %{F#444}|%{F-} {icon} {:artist:t30:{artist}:}{:artist: - :}{:t30:{title}:}  %{F#444}|%{F-} %{A1:player-mpris-tail.py previous:}  %{A} %{A1:player-mpris-tail.py play-pause:} {icon-reversed} %{A} %{A1:player-mpris-tail.py next:}  %{A} %{F#444}|%{F-} ' --icon-playing '' --icon-paused '' --icon-stopped ''
 tail = true
+
+[module/list-windows]
+type = custom/script
+interval = 0.5
+exec = ewmh_helper
 
 [module/pulseaudio]
 type = internal/pulseaudio
