@@ -40,14 +40,7 @@
 
 (load "auctex.el" nil t t)
 
-(elpy-enable)
-;(elpy-use-ipython)
 (pyenv-mode)
-
-(when (require 'flycheck nil t)
-  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-  (add-hook 'elpy-mode-hook 'flycheck-mode))
-(add-hook 'elpy-mode-hook #'hs-minor-mode)
 
 (defun ssbb-pyenv-hook ()
   "Automatically activates pyenv version if .python-version file exists."
@@ -59,6 +52,18 @@
 
 (ssbb-pyenv-hook)
 
+(add-to-list 'exec-path "~/.pyenv/shims")
+(elpy-enable)
+;(elpy-use-ipython)
+
+(setq elpy-rpc-virtualenv-path 'current)
+
+(add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell)
+
+(when (require 'flycheck nil t)
+  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+  (add-hook 'elpy-mode-hook 'flycheck-mode))
+(add-hook 'elpy-mode-hook #'hs-minor-mode)
 (require 'rust-mode)
 (add-hook 'rust-mode-hook (lambda () (setq indent-tabs-mode nil)))
 
@@ -94,6 +99,8 @@
 (global-set-key (kbd "C-=") 'er/expand-region)
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "<f5>") 'recompile)
+(global-set-key (kbd "C-x M-g") 'magit-dispatch)
+(setq org-cycle-separator-lines -1)
 
 
 ;; UI customization
@@ -108,3 +115,4 @@
 
 (setq split-height-threshold nil)
 (setq split-width-threshold 160)
+(setq magit-blame-echo-style 'headings)
