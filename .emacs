@@ -107,13 +107,13 @@
 ;;;;;;;;;;;;;;;;;;;;
 
 (global-linum-mode t)
-(setq split-width-threshold nil)
+; (setq split-width-threshold nil)
 
 (setq default-frame-alist '((width . 100) (height . 35)))
 
 (load-theme 'jbeans t)
 
 (setq split-height-threshold nil)
-(setq split-width-threshold 160)
+;; (setq split-width-threshold 160)
 (put 'downcase-region 'disabled nil)
 (setq magit-blame-echo-style 'headings)
