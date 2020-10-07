@@ -115,4 +115,5 @@
 
 (setq split-height-threshold nil)
 (setq split-width-threshold 160)
+(put 'downcase-region 'disabled nil)
 (setq magit-blame-echo-style 'headings)
