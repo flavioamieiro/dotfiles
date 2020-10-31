@@ -4,7 +4,7 @@
 import sys
 import re
 import urllib.request
-from html.parser import HTMLParser
+import html
 
 def usage():
     sys.stderr.write("usage: {0} <url>\n".format(sys.argv[0]))
@@ -23,7 +23,7 @@ content = urllib.request.urlopen(url).read()
 matches = re.search(title_regex, content, re.IGNORECASE | re.DOTALL)
 title = matches.group(1).decode('utf-8').replace('\n', '').strip()
 
-title = HTMLParser().unescape(title)
+title = html.unescape(title)
 
 endchar = '\n' if sys.stdout.isatty() else ''
 sys.stdout.write('{0} - {1}{2}'.format(title, url, endchar))
