@@ -1,7 +1,5 @@
 export WORKON_HOME=$HOME/.virtualenvs
 export PIP_DOWNLOAD_CACHE="$HOME/.pip/"
-#source /usr/bin/virtualenvwrapper.sh
-source /etc/bash_completion.d/virtualenvwrapper
 
 _fab_list(){
     # auto completion for fabfiles
