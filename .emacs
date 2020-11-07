@@ -40,12 +40,13 @@
 
 ;; modes for diferent filetypes
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(if (add-to-path-if-exists "~/.emacs.d/ledger/")
-    (load "ledger"))
-
-(load "auctex.el" nil t t)
+(require 'ledger-mode)
 
 (pyenv-mode)
+
+(when (require 'flycheck nil t)
+  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+  (add-hook 'elpy-mode-hook 'flycheck-mode))
 
 (defun ssbb-pyenv-hook ()
   "Automatically activates pyenv version if .python-version file exists."
