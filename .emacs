@@ -19,10 +19,15 @@
 (defvar required-packages
   '(better-defaults
     material-theme
+    jbeans-theme
+    markdown-mode
     elpy
     flycheck
     expand-region
-    magit))
+    pyenv-mode
+    rust-mode
+    magit
+    ledger-mode))
 
 (mapc #'(lambda (package)
 	  (unless (package-installed-p package)
