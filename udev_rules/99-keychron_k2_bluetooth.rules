@@ -1,0 +1,1 @@
+ACTION=="add", ATTRS{uniq}=="dc:2c:26:e7:bf:5f", RUN+="/usr/local/bin/udev_keyboard_hook"
