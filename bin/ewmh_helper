@@ -14,7 +14,8 @@ ICONS = {
 }
 
 def get_window_text(window):
-    icon = ICONS.get(window.get_wm_class()[0].lower(), DEFAULT_ICON)
+    _, window_class = window.get_wm_class() or ("DEFAULT", "DEFAULT")
+    icon = ICONS.get(window_class.lower(), DEFAULT_ICON)
     action_open = f"%{{A1:{PROGNAME} {window.id}:}}"
     action_close = "%{A}"
     return f"{action_open}{icon}{action_close}"
