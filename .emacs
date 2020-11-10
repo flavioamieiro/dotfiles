@@ -23,6 +23,7 @@
     markdown-mode
     elpy
     flycheck
+    flymake-shellcheck
     expand-region
     pyenv-mode
     rust-mode
@@ -76,6 +77,9 @@
 (add-hook 'elpy-mode-hook #'hs-minor-mode)
 (require 'rust-mode)
 (add-hook 'rust-mode-hook (lambda () (setq indent-tabs-mode nil)))
+
+(add-hook 'sh-mode-hook 'flymake-shellcheck-load)
+(add-hook 'after-init-hook #'global-flycheck-mode)
 
 ;; ido
 ;;;;;;
