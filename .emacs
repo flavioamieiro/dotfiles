@@ -28,6 +28,8 @@
     pyenv-mode
     rust-mode
     magit
+    js2-mode
+    skewer-mode
     ledger-mode))
 
 (mapc #'(lambda (package)
@@ -80,6 +82,9 @@
 
 (add-hook 'sh-mode-hook 'flymake-shellcheck-load)
 (add-hook 'after-init-hook #'global-flycheck-mode)
+
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-hook 'js2-mode-hook 'skewer-mode)
 
 ;; ido
 ;;;;;;
