@@ -1,0 +1,1 @@
+SUBSYSTEMS=="usb", ACTION=="add", ATTRS{idProduct}=="0250", ATTRS{idVendor}=="05ac", RUN+="v4l2-ctl -d /dev/video2 --set-fmt-video=width=1440,height=1080,pixelformat=YUYV"
