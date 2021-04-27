@@ -208,7 +208,7 @@ format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
 
 format-disconnected-prefix = " "
-format-disconnected = ─
+format-disconnected = -
 format-diconnected-prefix-foreground = ${colors.foreground-alt}
 format-disconnected-foreground = ${colors.foreground-alt}
 
@@ -244,7 +244,7 @@ format-volume = <label-volume> <bar-volume>  %{F#444}|%{F-}
 label-volume = 
 label-volume-foreground = ${root.foreground}
 
-label-muted =  ───────
+label-muted =  -------
 label-muted-foreground = #666
 
 bar-volume-width = 10
@@ -258,9 +258,9 @@ bar-volume-foreground-6 = #ff5555
 bar-volume-gradient = true
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
-bar-volume-fill = ─
+bar-volume-fill = -
 bar-volume-fill-font = 2
-bar-volume-empty = ─
+bar-volume-empty = -
 bar-volume-empty-font = 2
 bar-volume-empty-foreground = ${colors.foreground-alt}
 
