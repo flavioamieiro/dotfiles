@@ -191,9 +191,10 @@ bindsym $mod+r mode "resize"
 exec_always --no-startup-id "polybar main"
 exec --no-startup-id blueman-applet
 
-exec "xset +fp /home/amieiro/.local/share/fonts; xset fp rehash"
-exec "setxkbmap -layout 'br(thinkpad)' -option 'ctrl:nocaps'"
-exec "xrandr | grep 'HDMI-2 connected' && xrandr --output HDMI-2 --primary --auto --left-of eDP-1"
+exec --no-startup-id "setxkbmap -layout 'br(thinkpad)'"
+exec --no-startup-id "setxkbmap -option 'ctrl:nocaps'"
+exec --no-startup-id "xset +fp /home/amieiro/.local/share/fonts; xset fp rehash"
+exec --no-startup-id "xrandr | grep 'HDMI-2 connected' && xrandr --output HDMI-2 --primary --auto --left-of eDP-1"
 
 focus_follows_mouse no
 mouse_warping none
