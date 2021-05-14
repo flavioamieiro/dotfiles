@@ -1,0 +1,17 @@
+configuration {
+	modi: "run,drun,window";
+	width: 1920;
+	bw: 1;
+	location: 1;
+	m: "-4";
+	fixed-num-lines: false;
+	show-icons: true;
+	terminal: "urxvt";
+/*	sort: false;*/
+/*	sorting-method: ;*/
+	sidebar-mode: true;
+	matching: "fuzzy";
+	fullscreen: false;
+/*	fake-transparency: false;*/
+	theme: "glue_pro_blue";
+}
