@@ -205,7 +205,7 @@ bindsym --release Control+$alt+Shift+3 exec scrot -s
 bindsym XF86AudioRaiseVolume exec ~/bin/volume_control up
 bindsym XF86AudioLowerVolume exec ~/bin/volume_control down
 bindsym XF86AudioMute exec ~/bin/volume_control toggle
-bindsym XF86AudioPlay exec playerctl play-pause
-bindsym XF86AudioStop exec playerctl stop
-bindsym XF86AudioPrev exec playerctl previous
-bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPlay exec player-mpris-tail.py play-pause
+bindsym XF86AudioStop exec player-mpris-tail.py stop
+bindsym XF86AudioPrev exec player-mpris-tail.py previous
+bindsym XF86AudioNext exec player-mpris-tail.py next
