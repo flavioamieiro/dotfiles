@@ -198,6 +198,7 @@ exec --no-startup-id caffeine-indicator
 exec --no-startup-id "setxkbmap -layout 'br(thinkpad)' -option 'ctrl:nocaps'"
 exec --no-startup-id "xset +fp /home/amieiro/.local/share/fonts; xset fp rehash"
 exec --no-startup-id "xrandr | grep 'HDMI-2 connected' && xrandr --output HDMI-2 --primary --auto --left-of eDP-1"
+exec --no-startup-id "xrandr | grep 'DP-1 connected' && xrandr --output DP-1 --auto --left-of HDMI-2"
 
 focus_follows_mouse no
 mouse_warping none
