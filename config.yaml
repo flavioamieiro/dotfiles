@@ -1,0 +1,101 @@
+config:
+  backup: true
+  banner: true
+  create: true
+  dotpath: dotfiles
+  keepdot: false
+  link_dotfile_default: absolute
+  link_on_import: absolute
+  longkey: false
+dotfiles:
+  f_bashrc:
+    src: bashrc
+    dst: ~/.bashrc
+  f_coderc:
+    src: coderc
+    dst: ~/.coderc
+  f_emacs:
+    src: emacs
+    dst: ~/.emacs
+  f_git-completion.bash:
+    src: git-completion.bash
+    dst: ~/.git-completion.bash
+  f_gitconfig:
+    src: gitconfig
+    dst: ~/.gitconfig
+  d_mplayer:
+    src: mplayer
+    dst: ~/.mplayer
+  f_screenrc:
+    src: screenrc
+    dst: ~/.screenrc
+  f_tmux.conf:
+    src: tmux.conf
+    dst: ~/.tmux.conf
+  d_vim:
+    src: vim
+    dst: ~/.vim
+  f_vimrc:
+    src: vimrc
+    dst: ~/.vimrc
+  f_xdefaults:
+    src: Xdefaults
+    dst: ~/.Xdefaults
+  f_xinitrc:
+    src: xinitrc
+    dst: ~/.xinitrc
+  f_xmodmap:
+    src: Xmodmap
+    dst: ~/.Xmodmap
+  d_dunst:
+    src: config/dunst
+    dst: ~/.config/dunst
+  d_environment.d:
+    src: config/environment.d
+    dst: ~/.config/environment.d
+  d_feh:
+    src: config/feh
+    dst: ~/.config/feh
+  d_fontconfig:
+    src: config/fontconfig
+    dst: ~/.config/fontconfig
+  d_i3:
+    src: config/i3
+    dst: ~/.config/i3
+  d_i3status:
+    src: config/i3status
+    dst: ~/.config/i3status
+  d_rofi:
+    src: config/rofi
+    dst: ~/.config/rofi
+  d_systemd:
+    src: config/systemd
+    dst: ~/.config/systemd
+  d_zathura:
+    src: config/zathura
+    dst: ~/.config/zathura
+profiles:
+  berlin:
+    dotfiles:
+    - f_bashrc
+    - f_coderc
+    - f_emacs
+    - f_git-completion.bash
+    - f_gitconfig
+    - d_mplayer
+    - f_screenrc
+    - f_tmux.conf
+    - d_vim
+    - f_vimrc
+    - f_xdefaults
+    - f_xinitrc
+    - f_xmodmap
+    - d_dunst
+    - d_environment.d
+    - d_feh
+    - d_fontconfig
+    - d_i3
+    - d_i3status
+    - d_rofi
+    - d_systemd
+    - d_zathura

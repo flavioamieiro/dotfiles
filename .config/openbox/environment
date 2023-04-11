@@ -1,3 +1,0 @@
-#LANG=pt_BR.UTF8
-eval $(ssh-agent)
-eval $(gpg-agent --daemon)
