@@ -74,6 +74,10 @@ dotfiles:
   d_zathura:
     src: config/zathura
     dst: ~/.config/zathura
+  d_bin:
+    src: bin
+    dst: ~/bin
+    link: link_children
 profiles:
   berlin:
     dotfiles:
@@ -99,3 +103,4 @@ profiles:
     - d_rofi
     - d_systemd
     - d_zathura
+    - d_bin
