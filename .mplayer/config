@@ -1,6 +1,4 @@
 [default]
-heartbeat-cmd="xscreensaver-command -deactivate > /dev/null"
-#heartbeat-cmd="dbus-send --type=method_call --dest=org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.SimulateUserActivity"
 alang=en
 softvol=yes
 softvol-max=800
