@@ -30,7 +30,8 @@
     magit
     js2-mode
     skewer-mode
-    ledger-mode))
+    ledger-mode
+    scad-mode))
 
 (mapc #'(lambda (package)
 	  (unless (package-installed-p package)
