@@ -13,5 +13,5 @@ configuration {
 	matching: "fuzzy";
 	fullscreen: false;
 /*	fake-transparency: false;*/
-	theme: "glue_pro_blue";
 }
+@theme "glue_pro_blue"
