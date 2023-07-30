@@ -45,3 +45,4 @@ which rlwrap > /dev/null 2>&1 && alias guile="rlwrap guile"
 export GOPATH="$HOME/Installs/go/"
 
 source $HOME/.coderc
+. "$HOME/.cargo/env"
