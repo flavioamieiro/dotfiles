@@ -1,7 +1,7 @@
 XTerm*FaceName: inconsolata
 !XTerm*FaceSize: 11
 !XTerm*FaceSize: 12
-XTerm*FaceSize: 15
+XTerm*FaceSize: 24
 
 XTerm*background: black
 XTerm*foreground: white
@@ -39,7 +39,7 @@ URxvt*background: black
 URxvt*foreground: white
 URxvt*geometry: 128x40
 URxvt*scrollBar: False
-URxvt*font: xft:ibm3270-14
+URxvt*font: xft:ibm3270-20
 URxvt*saveLines: 50000
 
 URxvt.iso14755: off
