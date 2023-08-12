@@ -65,6 +65,12 @@ dotfiles:
   d_i3status:
     src: config/i3status
     dst: ~/.config/i3status
+  d_sway:
+    src: config/sway
+    dst: ~/.config/sway
+  d_waybar:
+    src: config/waybar
+    dst: ~/.config/waybar
   d_rofi:
     src: config/rofi
     dst: ~/.config/rofi
@@ -100,6 +106,33 @@ profiles:
     - d_fontconfig
     - d_i3
     - d_i3status
+    - d_rofi
+    - d_systemd
+    - d_zathura
+    - d_bin
+  angra:
+    dotfiles:
+    - f_bashrc
+    - f_coderc
+    - f_emacs
+    - f_git-completion.bash
+    - f_gitconfig
+    - d_mplayer
+    - f_screenrc
+    - f_tmux.conf
+    - d_vim
+    - f_vimrc
+    - f_xdefaults
+    - f_xinitrc
+    - f_xmodmap
+    - d_dunst
+    - d_environment.d
+    - d_feh
+    - d_fontconfig
+    - d_i3
+    - d_i3status
+    - d_sway
+    - d_waybar
     - d_rofi
     - d_systemd
     - d_zathura
