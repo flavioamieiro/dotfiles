@@ -47,6 +47,9 @@ dotfiles:
   f_xmodmap:
     src: Xmodmap
     dst: ~/.Xmodmap
+  d_alacritty:
+    src: config/alacritty
+    dst: ~/.config/alacritty
   d_dunst:
     src: config/dunst
     dst: ~/.config/dunst
@@ -100,6 +103,7 @@ profiles:
     - f_xdefaults
     - f_xinitrc
     - f_xmodmap
+    - d_alacritty
     - d_dunst
     - d_environment.d
     - d_feh
@@ -125,6 +129,7 @@ profiles:
     - f_xdefaults
     - f_xinitrc
     - f_xmodmap
+    - d_alacritty
     - d_dunst
     - d_environment.d
     - d_feh
