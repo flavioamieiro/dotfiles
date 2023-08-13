@@ -43,8 +43,6 @@
 
 ;; modes for diferent filetypes
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'ledger-mode)
-
 (pyenv-mode)
 
 (setq elpy-rpc-virtualenv-path 'current)
