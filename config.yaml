@@ -110,6 +110,8 @@ profiles:
     - d_fontconfig
     - d_i3
     - d_i3status
+    - d_sway
+    - d_waybar
     - d_rofi
     - d_systemd
     - d_zathura
