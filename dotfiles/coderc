@@ -53,6 +53,7 @@ export PIPENV_SHELL_FANCY=1
 export PIPENV_DEFAULT_PYTHON_VERSION="3"
 
 #[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+export PYENV_ROOT="$HOME/.pyenv"
 export PATH="/home/amieiro/.pyenv/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
