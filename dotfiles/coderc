@@ -59,3 +59,16 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 export PYTHONBREAKPOINT=ipdb.set_trace
+{%@@ if profile == "rosa" @@%}
+export INFRASTRUCTURE_APPLICATION_DIR="$HOME/projects/infrastructure/application"
+source "$HOME/projects/infrastructure/application/kube.completion.sh"
+PATH="$HOME/projects/toolbox/bin:$PATH"
+export METR_TOOLBOX_PYTHON="/home/amieiro/.pyenv/versions/toolbox/bin/python"
+export LD_LIBRARY_PATH=/usr/local/lib/
+
+function metr() {
+    PYENV_VERSION=toolbox pyenv exec metr $*
+}
+export -f metr
+alias timew='TZ=America/Sao_Paulo timew'
+{%@@ endif @@%}
