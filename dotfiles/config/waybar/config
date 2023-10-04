@@ -3,7 +3,7 @@
     "height": 20,
     // "output": ["eDP-1"],
     "modules-left": ["sway/workspaces"],
-    "modules-center": ["custom/waybar-mpris"],
+    "modules-center": ["mpris"],
     "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "battery", "clock", "tray"],
 
     "sway/workspaces": {
@@ -19,6 +19,18 @@
             "focused": "",
             "default": ""
         }
+    },
+    "mpris": {
+        "interval": 0,
+        "format": "DEFAULT: {player_icon} {dynamic}",
+        "format-paused": "DEFAULT: {status_icon} <i>{dynamic}</i>",
+        "player-icons": {
+            "default": "▶",
+            "mpv": "🎵"
+        },
+        "status-icons": {
+            "paused": "⏸"
+        },
     },
     "idle_inhibitor": {
         "format": "{icon}",
