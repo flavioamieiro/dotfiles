@@ -4,7 +4,7 @@
     // "output": ["eDP-1"],
     "modules-left": ["sway/workspaces"],
     "modules-center": ["custom/waybar-mpris"],
-    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "battery", "custom/clock", "tray"],
+    "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "battery", "clock", "tray"],
 
     "sway/workspaces": {
         "all-outputs": true,
@@ -80,17 +80,28 @@
         },
         "on-click": "pavucontrol"
     },
-    // go get git.hrfee.pw/hrfee/waybar-mpris
-    "custom/waybar-mpris": {
-        "return-type": "json",
-        "exec": "$HOME/bin/waybar-mpris --position --autofocus --play '' --pause ''",
-        "on-click": "$HOME/bin/waybar-mpris --send toggle",
-        "on-scroll-up": "$HOME/bin/waybar-mpris --send player-next",
-        "on-scroll-down": "$HOME/bin/waybar-mpris --send player-prev",
-        "escape": true
-    },
-    "custom/clock": {
-        "exec": "date +'%H:%M %d/%m/%Y'",
-        "interval": 5
+    "clock": {
+        "format": "{:%H.%M %Y-%m-%d}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "timezones": ["Europe/Berlin", "America/Sao_Paulo"],
+        "calendar": {
+            "mode": "year",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "on-scroll": 1,
+            "on-click-right": "mode",
+            "format": {
+                "months":     "<span color='#ffead3'><b>{}</b></span>",
+                "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+            }
+        },
+        "actions":  {
+            "on-click-right": "mode",
+            "on-scroll-up": "tz_up",
+            "on-scroll-down": "tz_down"
+        }
     }
 }
