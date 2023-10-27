@@ -144,6 +144,9 @@ autocmd BufWritePre * :%s/\s\+$//e
 """"""""""""
 inoremap <C-space> <C-p>
 imap <Nul> <C-p>
+noremap "+y y:call system("wl-copy", @")<cr>
+noremap "+p :let @"=substitute(system("wl-paste --no-newline"), '<C-v><C-m>', '', 'g')<cr>p
+noremap "*p :let @"=substitute(system("wl-paste --no-newline --primary"), '<C-v><C-m>', '', 'g')<cr>p
 
 
 """"""""""""""""""""""""""""""""""""
