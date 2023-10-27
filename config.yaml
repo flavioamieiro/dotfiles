@@ -90,6 +90,10 @@ dotfiles:
     src: bin
     dst: ~/bin
     link: link_children
+  d_applications:
+    src: local/share/applications
+    dst: ~/.local/share/applications
+    link: link_children
 profiles:
   berlin:
     dotfiles:
@@ -120,6 +124,7 @@ profiles:
     - d_systemd
     - d_zathura
     - d_bin
+    - d_applications
   angra:
     dotfiles:
     - f_bashrc
@@ -178,3 +183,4 @@ profiles:
     - d_systemd
     - d_zathura
     - d_bin
+    - d_applications

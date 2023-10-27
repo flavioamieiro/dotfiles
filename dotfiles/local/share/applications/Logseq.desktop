@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=Logseq
+Exec=Logseq --ozone-platform=wayland
+Categories=Office
