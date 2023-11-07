@@ -91,6 +91,9 @@
 (setq ido-enable-flex-matching t) ;; fuzzy finding no ido
 (setq icomplete-mode t)
 
+(use-package dts-mode
+  :mode ("\\.dts\\'" "\\.dtsi\\'"))
+
 ;; Inferior programs
 ;;;;;;;;;;;;;;;;;;;;
 
