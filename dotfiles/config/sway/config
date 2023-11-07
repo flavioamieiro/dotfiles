@@ -213,4 +213,6 @@ bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
 
 
 exec blueman-applet
+{%@@ if profile == "berlin" @@%}
 exec syncthing-gtk --minimized
+{%@@ endif @@%}

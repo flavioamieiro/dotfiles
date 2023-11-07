@@ -1,2 +1,6 @@
 font:
+{%@@ if profile == "rosa" @@%}
+  size: 12
+{%@@ else @@%}
   size: 18
+{%@@ endif @@%}
