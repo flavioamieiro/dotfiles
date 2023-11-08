@@ -15,6 +15,7 @@ image/gif=firefox-esr.desktop
 image/jpg=viewnior.desktop
 image/jpeg=viewnior.desktop
 image/png=viewnior.desktop
+inode/directory=org.gnome.Nautilus.desktop;org.gnome.baobab.desktop;
 
 
 [Added Associations]
