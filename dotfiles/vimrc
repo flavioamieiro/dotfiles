@@ -54,7 +54,7 @@ if has("gui_running")
    set guioptions-=r
    set guioptions-=b
 
-   set gfn=Inconsolata\ 24
+   set gfn=Monospace\ 24
    set lines=40 columns=90
 endif
 
