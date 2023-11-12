@@ -19,7 +19,7 @@
 (defvar required-packages
   '(better-defaults
     material-theme
-    jbeans-theme
+    catppuccin-theme
     markdown-mode
     elpy
     flycheck
@@ -132,7 +132,7 @@
 
 (setq default-frame-alist '((width . 100) (height . 35)))
 
-(load-theme 'jbeans t)
+(load-theme 'catppuccin :no-confirm)
 
 (setq split-height-threshold nil)
 ;; (setq split-width-threshold 160)
