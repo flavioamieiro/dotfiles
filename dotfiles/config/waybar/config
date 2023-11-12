@@ -1,9 +1,6 @@
 {
     "position": "bottom",
-    "height": 20,
-    // "output": ["eDP-1"],
     "modules-left": ["sway/workspaces"],
-    "modules-center": ["mpris"],
     "modules-right": ["idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "battery", "clock", "tray"],
 
     "sway/workspaces": {

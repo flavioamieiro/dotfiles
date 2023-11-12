@@ -1,8 +1,8 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: IBM3270, Inconsolata, monospace;
-    font-size: 1em;
+    font-family: monospace;
+    font-size: 20px;
     background-color: #222222;
     color: #dfdfdf;
 }
