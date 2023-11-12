@@ -72,3 +72,4 @@ function metr() {
 export -f metr
 alias timew='TZ=America/Sao_Paulo timew'
 {%@@ endif @@%}
+eval "$(starship init bash)"

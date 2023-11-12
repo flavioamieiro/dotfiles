@@ -29,6 +29,9 @@ dotfiles:
   f_screenrc:
     src: screenrc
     dst: ~/.screenrc
+  f_starship.toml:
+    src: config/starship.toml
+    dst: ~/.config/starship.toml
   f_tmux.conf:
     src: tmux.conf
     dst: ~/.tmux.conf
@@ -111,6 +114,7 @@ profiles:
     - d_mplayer
     - f_screenrc
     - f_tmux.conf
+    - f_starship.toml
     - d_vim
     - f_vimrc
     - f_xdefaults
@@ -171,6 +175,7 @@ profiles:
     - f_gitconfig
     - d_mplayer
     - f_screenrc
+    - f_starship.toml
     - f_tmux.conf
     - d_vim
     - f_vimrc
