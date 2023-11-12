@@ -141,7 +141,7 @@
 (put 'downcase-region 'disabled nil)
 (setq magit-blame-echo-style 'headings)
 {%@@ if profile == "rosa" @@%}
-(set-frame-font "ibm3270 18" nil t)
+(set-face-attribute 'default nil :height 180)
 {%@@ else @@%}
-(set-frame-font "ibm3270 22" nil t)
+(set-face-attribute 'default nil :height 220)
 {%@@ endif @@%}
