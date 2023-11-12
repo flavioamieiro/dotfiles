@@ -94,6 +94,9 @@ dotfiles:
     src: local/share/applications
     dst: ~/.local/share/applications
     link: link_children
+  d_tpm:
+    src: tpm
+    dst: ~/.tmux/plugins/tpm
 profiles:
   berlin:
     dotfiles:
@@ -125,6 +128,7 @@ profiles:
     - d_zathura
     - d_bin
     - d_applications
+    - d_tpm
   angra:
     dotfiles:
     - f_bashrc
@@ -184,3 +188,4 @@ profiles:
     - d_zathura
     - d_bin
     - d_applications
+    - d_tpm
