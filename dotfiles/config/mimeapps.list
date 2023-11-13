@@ -12,9 +12,9 @@ application/x-extension-xhtml=firefox-esr.desktop
 application/x-extension-xht=firefox-esr.desktop
 application/pdf=org.pwmt.zathura-pdf-poppler.desktop
 image/gif=firefox-esr.desktop
-image/jpg=viewnior.desktop
-image/jpeg=viewnior.desktop
-image/png=viewnior.desktop
+image/jpg=mirage.desktop;viewnior.desktop
+image/jpeg=mirage.desktop;viewnior.desktop
+image/png=mirage.desktop;viewnior.desktop
 inode/directory=org.gnome.Nautilus.desktop;org.gnome.baobab.desktop;
 
 
