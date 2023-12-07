@@ -50,6 +50,11 @@
 
 (setq elpy-formatter "black")
 
+(define-key elpy-refactor-map (kbd "f")
+  (cons (format "%sormat code"
+                (propertize "f" 'face 'bold))
+        'elpy-format-code))
+
 (when (require 'flycheck nil t)
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
   (add-hook 'elpy-mode-hook 'flycheck-mode))
