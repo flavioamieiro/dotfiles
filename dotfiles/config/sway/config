@@ -213,6 +213,7 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
 
+for_window [title="\ Indicador\ de\ compartilhamento$"] floating enable, sticky enable
 
 exec blueman-applet
 {%@@ if profile == "berlin" @@%}
