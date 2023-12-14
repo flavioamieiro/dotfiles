@@ -201,6 +201,7 @@ input "type:keyboard" {
 bindsym Alt+Ctrl+l exec swaylock -c 000000
 
 bindsym Alt+Ctrl+3 exec grim
+bindsym Alt+Shift+3 exec grim -g "$(slurp)" - | wl-copy -t image/png
 bindsym Alt+Ctrl+Shift+3 exec grim -g "$(slurp)"
 
 bindsym XF86AudioRaiseVolume exec ~/bin/volume_control up
