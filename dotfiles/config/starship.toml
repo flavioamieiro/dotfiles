@@ -7,6 +7,9 @@ disabled = true
 [username]
 show_always = true
 
+[directory]
+truncation_length = 0
+
 [character]
 success_symbol = '[➜](bold green) '
 error_symbol = '[✗](bold red) '
