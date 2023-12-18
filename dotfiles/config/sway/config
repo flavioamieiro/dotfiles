@@ -18,6 +18,8 @@ include /etc/sway/config-vars.d/*
 
 ### Output configuration
 output * bg #000000 solid_color
+output eDP-1 pos 3840 0
+output DP-1 pos 0 0
 
 ### Idle configuration
 #
