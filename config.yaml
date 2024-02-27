@@ -1,3 +1,5 @@
+uservariables:
+  email: "email"
 config:
   backup: true
   banner: true
@@ -7,6 +9,8 @@ config:
   link_dotfile_default: absolute
   link_on_import: absolute
   longkey: false
+  import_variables:
+    - uservariables.yaml:optional
 dotfiles:
   f_bashrc:
     src: bashrc
