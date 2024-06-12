@@ -137,6 +137,10 @@
 (global-display-line-numbers-mode)
 ; (setq split-width-threshold nil)
 
+(require 'whitespace)
+(global-whitespace-mode)
+(setq whitespace-style '(face tabs spaces trailing lines-tail space-before-tab missing-newline-at-eof empty space-mark tab-mark))
+
 (setq default-frame-alist '((width . 100) (height . 35)))
 
 (load-theme 'catppuccin :no-confirm)
