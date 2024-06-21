@@ -1,0 +1,11 @@
+import = ["catppuccin/catppuccin-mocha.yml"]
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+{%@@ if profile == "rosa" @@%}
+  size = 12
+{%@@ else @@%}
+  size = 22
+{%@@ endif @@%}
