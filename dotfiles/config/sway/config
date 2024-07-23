@@ -221,6 +221,7 @@ bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym XF86Launch5 exec macropad_1
 
 {%@@ if profile == "rosa" @@%}
 for_window [title="\ Sharing\ Indicator$"] floating enable, sticky enable
