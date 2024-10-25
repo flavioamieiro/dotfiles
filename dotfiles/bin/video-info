@@ -1,0 +1,31 @@
+#!/usr/bin/env python3
+import textwrap
+import sys
+
+import yt_dlp
+
+
+if len(sys.argv) < 2:
+    sys.stderr.write(f"usage: {sys.argv[0]} URL\n")
+    sys.exit(1)
+
+url = sys.argv[1]
+
+params = {
+    "quiet": True,
+}
+
+with yt_dlp.YoutubeDL(params=params) as ydl:
+    try:
+        info = ydl.extract_info(url, download=False)
+    except yt_dlp.utils.DownloadError as e:
+        sys.stderr.write(f"Error downloading video {url}:\n")
+        sys.stderr.write(str(e))
+        sys.exit(1)
+
+    sys.stdout.write(textwrap.dedent(f"""
+    #video - {info['fulltitle']}
+            - channel:: {info['channel']}
+              tags::
+            - {{{{video {info['webpage_url']}}}}}
+    """))
