@@ -18,6 +18,7 @@
   '(better-defaults
     material-theme
     catppuccin-theme
+    blacken
     markdown-mode
     eglot
     elpy
@@ -54,7 +55,7 @@
 (define-key elpy-refactor-map (kbd "f")
   (cons (format "%sormat code"
                 (propertize "f" 'face 'bold))
-        'elpy-format-code))
+        'blacken-buffer))
 
 (when (require 'flycheck nil t)
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
