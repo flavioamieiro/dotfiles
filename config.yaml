@@ -87,6 +87,9 @@ dotfiles:
   d_waybar:
     src: config/waybar
     dst: ~/.config/waybar
+  d_rio:
+    src: config/rio
+    dst: ~/.config/rio
   d_rofi:
     src: config/rofi
     dst: ~/.config/rofi
@@ -135,6 +138,7 @@ profiles:
     - d_mimeapps
     - d_sway
     - d_waybar
+    - d_rio
     - d_rofi
     - d_systemd
     - d_zathura
@@ -166,6 +170,7 @@ profiles:
     - d_mimeapps
     - d_sway
     - d_waybar
+    - d_rio
     - d_rofi
     - d_systemd
     - d_zathura
@@ -197,6 +202,7 @@ profiles:
     - d_mimeapps
     - d_sway
     - d_waybar
+    - d_rio
     - d_rofi
     - d_systemd
     - d_zathura
