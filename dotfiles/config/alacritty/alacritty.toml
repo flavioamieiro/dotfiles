@@ -1,4 +1,5 @@
-import = ["catppuccin/catppuccin-mocha.yml"]
+[general]
+import = ["catppuccin/catppuccin-mocha.toml"]
 
 [env]
 TERM = "xterm-256color"
