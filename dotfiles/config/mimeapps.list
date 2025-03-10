@@ -16,6 +16,7 @@ image/jpg=mirage.desktop;viewnior.desktop
 image/jpeg=mirage.desktop;viewnior.desktop
 image/png=mirage.desktop;viewnior.desktop
 inode/directory=org.gnome.Nautilus.desktop;org.gnome.baobab.desktop;
+x-scheme-handler/logseq=Logseq.desktop
 
 
 [Added Associations]
