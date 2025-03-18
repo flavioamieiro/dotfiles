@@ -212,19 +212,19 @@ bindsym Alt+Ctrl+3 exec grim
 bindsym Alt+Shift+3 exec grim -g "$(slurp)" - | wl-copy -t image/png
 bindsym Alt+Ctrl+Shift+3 exec grim -g "$(slurp)"
 
-bindsym XF86AudioRaiseVolume exec ~/bin/volume_control up
-bindsym XF86AudioLowerVolume exec ~/bin/volume_control down
-bindsym XF86AudioMute exec ~/bin/volume_control toggle
+bindsym XF86AudioRaiseVolume exec ~/.local/bin/volume_control up
+bindsym XF86AudioLowerVolume exec ~/.local/bin/volume_control down
+bindsym XF86AudioMute exec ~/.local/bin/volume_control toggle
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioStop exec playerctl stop
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86AudioNext exec playerctl next
 bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
-bindsym XF86Launch5 exec macropad_1
-bindsym XF86Launch6 exec macropad_2
-bindsym XF86Launch7 exec macropad_3
-bindsym XF86Launch8 exec macropad_4
+bindsym XF86Launch5 exec ~/.local/bin/macropad_1
+bindsym XF86Launch6 exec ~/.local/bin/macropad_2
+bindsym XF86Launch7 exec ~/.local/bin/macropad_3
+bindsym XF86Launch8 exec ~/.local/bin/macropad_4
 
 {%@@ if profile == "rosa" @@%}
 for_window [title="\ Sharing\ Indicator$"] floating enable, sticky enable

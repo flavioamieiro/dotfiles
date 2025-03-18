@@ -101,7 +101,7 @@ dotfiles:
     dst: ~/.config/zathura
   d_bin:
     src: bin
-    dst: ~/bin
+    dst: ~/.local/bin
     link: link_children
   d_applications:
     src: local/share/applications
