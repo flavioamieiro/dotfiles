@@ -38,16 +38,34 @@
 	    (package-install package)))
       required-packages)
 
+
 ;; Base changes
 ;;;;;;;;;;;;;;;
 (require 'better-defaults)
 (add-hook 'after-init-hook 'global-company-mode)
 
+
+;; ido
+;;;;;;
+(require 'ido)
+(ido-mode t)
+(setq ido-enable-flex-matching t) ;; fuzzy finding no ido
+(setq icomplete-mode t)
+
+
 ;; modes for diferent filetypes
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'prog-mode-hook #'hs-minor-mode)
-(pyenv-mode)
 
+(require 'eglot)
+
+(add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell)
+
+
+; python
+;;;;;;;;
+
+(pyenv-mode)
 (elpy-enable)
 
 (setq elpy-formatter "black")
@@ -60,17 +78,7 @@
 (when (require 'flycheck nil t)
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
   (add-hook 'elpy-mode-hook 'flycheck-mode))
-(add-hook 'elpy-mode-hook #'hs-minor-mode)
 
-(require 'eglot)
-(require 'rust-mode)
-(add-hook 'rust-mode-hook (lambda () (setq indent-tabs-mode nil)))
-(add-hook 'rust-mode-hook 'eglot-ensure)
-(add-to-list 'eglot-server-programs
-             '((rust-ts-mode rust-mode) .
-               ("rustup" "run" "stable" "rust-analyzer" :initializationOptions (:check (:command "clippy")))))
-(with-eval-after-load 'rust-mode
-  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
 
 (defun ssbb-pyenv-hook ()
   "Automatically activates pyenv version if .python-version file exists."
@@ -83,35 +91,39 @@
 (ssbb-pyenv-hook)
 
 (add-to-list 'exec-path "~/.pyenv/shims")
-(elpy-enable)
 ;(elpy-use-ipython)
 
 (setq elpy-rpc-virtualenv-path 'current)
 
-(add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell)
 
-(when (require 'flycheck nil t)
-  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-  (add-hook 'elpy-mode-hook 'flycheck-mode))
-(add-hook 'elpy-mode-hook #'hs-minor-mode)
+; rust
+;;;;;;
+
 (require 'rust-mode)
 (add-hook 'rust-mode-hook (lambda () (setq indent-tabs-mode nil)))
+(add-hook 'rust-mode-hook 'eglot-ensure)
+(add-to-list 'eglot-server-programs
+             '((rust-ts-mode rust-mode) .
+               ("rustup" "run" "stable" "rust-analyzer" :initializationOptions (:check (:command "clippy")))))
+(with-eval-after-load 'rust-mode
+  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
 
 (add-hook 'sh-mode-hook 'flymake-shellcheck-load)
 (add-hook 'after-init-hook #'global-flycheck-mode)
 
+; javascript
+;;;;;;;;;;;;
+
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 (add-hook 'js2-mode-hook 'skewer-mode)
 
-;; ido
-;;;;;;
-(require 'ido)
-(ido-mode t)
-(setq ido-enable-flex-matching t) ;; fuzzy finding no ido
-(setq icomplete-mode t)
+
+; device-tree
+;;;;;;;;;;;;;
 
 (use-package dts-mode
   :mode ("\\.dts\\'" "\\.dtsi\\'"))
+
 
 ;; Inferior programs
 ;;;;;;;;;;;;;;;;;;;;
