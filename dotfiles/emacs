@@ -164,8 +164,4 @@
 ;; (setq split-width-threshold 160)
 (put 'downcase-region 'disabled nil)
 (setq magit-blame-echo-style 'headings)
-{%@@ if profile == "rosa" @@%}
-(set-face-attribute 'default nil :height 180)
-{%@@ else @@%}
-(set-face-attribute 'default nil :height 220)
-{%@@ endif @@%}
+(set-face-attribute 'default nil :height 140)
