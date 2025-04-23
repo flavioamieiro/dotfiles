@@ -143,6 +143,8 @@
 
 ;; UI customization
 ;;;;;;;;;;;;;;;;;;;;
+(define-key hs-minor-mode-map (kbd "C-c C-h") (lookup-key hs-minor-mode-map (kbd "C-c @")))
+(define-key hs-minor-mode-map (kbd "C-c @") nil)
 
 (require 'display-line-numbers)
 (global-display-line-numbers-mode)
