@@ -45,6 +45,7 @@
 
 ;; modes for diferent filetypes
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(add-hook 'prog-mode-hook #'hs-minor-mode)
 (pyenv-mode)
 
 (elpy-enable)
