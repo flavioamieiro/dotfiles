@@ -47,7 +47,6 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (pyenv-mode)
 
-(setq elpy-rpc-virtualenv-path 'current)
 (elpy-enable)
 
 (setq elpy-formatter "black")
