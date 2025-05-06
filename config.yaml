@@ -175,7 +175,7 @@ profiles:
     - d_systemd
     - d_zathura
     - d_bin
-  rosa:
+  saopaulo:
     dotfiles:
     - f_bashrc
     - f_coderc

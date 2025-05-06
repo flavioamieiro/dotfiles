@@ -59,7 +59,7 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 export PYTHONBREAKPOINT=ipdb.set_trace
-{%@@ if profile == "rosa" @@%}
+{%@@ if profile == "saopaulo" @@%}
 export INFRASTRUCTURE_APPLICATION_DIR="$HOME/projects/infrastructure/application"
 source "$HOME/projects/infrastructure/application/kube.completion.sh"
 PATH="$HOME/projects/toolbox/bin:$PATH"

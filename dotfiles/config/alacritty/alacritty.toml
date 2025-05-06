@@ -5,7 +5,7 @@ import = ["catppuccin/catppuccin-mocha.toml"]
 TERM = "xterm-256color"
 
 [font]
-{%@@ if profile == "rosa" @@%}
+{%@@ if profile == "saopaulo" @@%}
   size = 12
 {%@@ else @@%}
   size = 22

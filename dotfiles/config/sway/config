@@ -22,7 +22,7 @@ output * bg #000000 solid_color
 {%@@ if profile == "berlin" @@%}
 output eDP-1 pos 3840 0
 output DP-1 pos 0 0
-{%@@ elif profile == "rosa" @@%}
+{%@@ elif profile == "saopaulo" @@%}
 output eDP-1 pos 2560 0
 output DP-3 pos 0 0 scale 1.5
 {%@@ endif @@%}
@@ -226,7 +226,7 @@ bindsym XF86Launch6 exec ~/.local/bin/macropad_2
 bindsym XF86Launch7 exec ~/.local/bin/macropad_3
 bindsym XF86Launch8 exec ~/.local/bin/macropad_4
 
-{%@@ if profile == "rosa" @@%}
+{%@@ if profile == "saopaulo" @@%}
 for_window [title="\ Sharing\ Indicator$"] floating enable, sticky enable
 for_window [title="^Calculator$"] floating enable, sticky enable
 {%@@ else @@%}
