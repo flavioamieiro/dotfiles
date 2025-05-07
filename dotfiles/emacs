@@ -95,6 +95,8 @@
 
 (setq elpy-rpc-virtualenv-path 'current)
 
+(put 'python-shell-process-environment 'safe-local-variable
+     (lambda (v) '(string-prefix-p "DJANGO_SETTINGS_MODULE=" v)))
 
 ; rust
 ;;;;;;
