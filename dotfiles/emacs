@@ -106,7 +106,7 @@
 (add-hook 'rust-mode-hook 'eglot-ensure)
 (add-to-list 'eglot-server-programs
              '((rust-ts-mode rust-mode) .
-               ("rustup" "run" "stable" "rust-analyzer" :initializationOptions (:check (:command "clippy")))))
+               ("rust-analyzer" :initializationOptions (:check (:command "clippy")))))
 (with-eval-after-load 'rust-mode
   (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
 
