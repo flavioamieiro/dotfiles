@@ -30,6 +30,7 @@
     rust-mode
     magit
     js2-mode
+    yaml-mode
     skewer-mode
     scad-mode))
 
@@ -61,6 +62,8 @@
 
 (add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell)
 
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
 
 ; python
 ;;;;;;;;
