@@ -72,6 +72,9 @@ dotfiles:
   d_fontconfig:
     src: config/fontconfig
     dst: ~/.config/fontconfig
+  d_fuzzel:
+    src: config/fuzzel
+    dst: ~/.config/fuzzel
   d_i3:
     src: config/i3
     dst: ~/.config/i3
@@ -133,6 +136,7 @@ profiles:
     - d_environment.d
     - d_feh
     - d_fontconfig
+    - d_fuzzel
     - d_i3
     - d_i3status
     - d_mimeapps
@@ -165,6 +169,7 @@ profiles:
     - d_environment.d
     - d_feh
     - d_fontconfig
+    - d_fuzzel
     - d_i3
     - d_i3status
     - d_mimeapps
@@ -197,6 +202,7 @@ profiles:
     - d_environment.d
     - d_feh
     - d_fontconfig
+    - d_fuzzel
     - d_i3
     - d_i3status
     - d_mimeapps
