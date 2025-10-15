@@ -44,7 +44,7 @@
 ;;;;;;;;;;;;;;;
 (require 'better-defaults)
 (add-hook 'after-init-hook 'global-company-mode)
-
+(global-auto-revert-mode)
 
 ;; ido
 ;;;;;;
