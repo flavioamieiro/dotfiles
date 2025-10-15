@@ -32,6 +32,7 @@
     js2-mode
     yaml-mode
     skewer-mode
+    smex
     scad-mode))
 
 (mapc #'(lambda (package)
@@ -53,6 +54,11 @@
 (setq ido-enable-flex-matching t) ;; fuzzy finding no ido
 (setq icomplete-mode t)
 
+(require 'smex)
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
+;; This is your old M-x.
+(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
 
 ;; modes for diferent filetypes
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
