@@ -136,6 +136,20 @@
   :mode ("\\.dts\\'" "\\.dtsi\\'"))
 
 
+; org-mode
+;;;;;;;;;;
+
+(use-package org
+  :ensure t
+  :custom ((org-directory (file-truename "~/org"))
+           (org-default-notes-file (concat org-directory "/notes.org"))
+           (org-agenda-files (directory-files-recursively org-directory "\\.org$"))
+           (org-cycle-separator-lines -1)
+           (org-display-inline-images t))
+  :bind (("C-c C-g l" . org-store-link)
+         ("C-c C-g a" . org-agenda)
+         ("C-c C-g c" . org-capture)))
+
 ;; Inferior programs
 ;;;;;;;;;;;;;;;;;;;;
 
@@ -162,7 +176,6 @@
 (global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "<f5>") 'recompile)
 (global-set-key (kbd "C-x M-g") 'magit-dispatch)
-(setq org-cycle-separator-lines -1)
 
 
 ;; UI customization
