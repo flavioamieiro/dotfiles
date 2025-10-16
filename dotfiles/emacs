@@ -168,7 +168,7 @@
   (org-download-image-dir (concat org-directory "/images"))
   (org-download-heading-lvl nil)
   (org-download-timestamp "%Y-%m-%d_%H-%M-%S_")
-  (org-download-display-inline-images t)
+  (org-startup-with-inline-images t)
   :bind
   (:map org-mode-map
     (("s-Y" . org-download-clipboard)
