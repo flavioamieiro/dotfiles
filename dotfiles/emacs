@@ -161,6 +161,21 @@
          ("C-c C-g J" . org-roam-dailies-goto-today)))
 
 (use-package org-download
+  :ensure t
+  :after org
+  :custom
+  (org-download-method 'directory)
+  (org-download-image-dir (concat org-directory "/images"))
+  (org-download-heading-lvl nil)
+  (org-download-timestamp "%Y-%m-%d_%H-%M-%S_")
+  (org-download-display-inline-images t)
+  :bind
+  (:map org-mode-map
+    (("s-Y" . org-download-clipboard)
+     ("s-y" . org-download-yank))))
+
+
+
 ;; Inferior programs
 ;;;;;;;;;;;;;;;;;;;;
 
