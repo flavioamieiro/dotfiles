@@ -26,6 +26,7 @@
     flycheck-rust
     flymake-shellcheck
     expand-region
+    glsl-mode
     pyenv-mode
     rust-mode
     magit
@@ -73,6 +74,9 @@
 
 (require 'yaml-mode)
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+
+(use-package glsl-mode
+  :ensure t)
 
 ; python
 ;;;;;;;;
