@@ -150,6 +150,17 @@
          ("C-c C-g a" . org-agenda)
          ("C-c C-g c" . org-capture)))
 
+(use-package org-roam
+  :ensure t
+  :custom
+  (org-roam-directory (concat org-directory "/roam"))
+  :config
+  (org-roam-db-autosync-mode)
+  (require 'org-roam-protocol)
+  :bind (("C-c C-g j" . org-roam-dailies-capture-today)
+         ("C-c C-g J" . org-roam-dailies-goto-today)))
+
+(use-package org-download
 ;; Inferior programs
 ;;;;;;;;;;;;;;;;;;;;
 
