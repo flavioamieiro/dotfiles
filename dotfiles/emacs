@@ -175,6 +175,11 @@
      ("s-y" . org-download-yank))))
 
 
+(use-package pdf-tools
+  :ensure t)
+
+(use-package org-noter
+  :ensure t)
 
 ;; Inferior programs
 ;;;;;;;;;;;;;;;;;;;;
