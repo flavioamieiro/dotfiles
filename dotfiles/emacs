@@ -154,7 +154,7 @@
 (use-package org
   :ensure t
   :custom ((org-directory (file-truename "~/org"))
-           (org-default-notes-file (concat org-directory "/notes.org"))
+           (org-default-notes-file (concat org-directory "/roam/inbox.org"))
            (org-agenda-files (directory-files-recursively org-directory "\\.org$"))
            (org-cycle-separator-lines -1)
            (org-display-inline-images t))
