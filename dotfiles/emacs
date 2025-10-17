@@ -184,8 +184,6 @@
   :config
   (org-roam-db-autosync-mode)
   (require 'org-roam-protocol)
-  :bind (("C-c C-g j" . org-roam-dailies-capture-today)
-         ("C-c C-g J" . org-roam-dailies-goto-today)))
   (add-to-list 'display-buffer-alist
              '("\\*org-roam\\*"
                (display-buffer-in-side-window)
@@ -194,6 +192,13 @@
                (window-width . 0.33)
                (window-parameters . ((no-other-window . t)
                                      (no-delete-other-windows . t)))))
+  (require 'org-roam-dailies)
+  :bind ((:map org-mode-map
+           (("C-c n f" . org-roam-node-find)
+            ("C-c n i" . org-roam-node-insert)
+            ("C-c n r" . org-roam-refile)
+            ("C-c n l" . org-roam-buffer-toggle))))
+  :bind-keymap ("C-c C-g d" . org-roam-dailies-map))
 
 (use-package org-download
   :ensure t
