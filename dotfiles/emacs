@@ -183,7 +183,6 @@
          :empty-lines-before 2)))
   :config
   (org-roam-db-autosync-mode)
-  (require 'org-roam-protocol)
   (add-to-list 'display-buffer-alist
              '("\\*org-roam\\*"
                (display-buffer-in-side-window)
