@@ -176,8 +176,7 @@
   :ensure t
   :after org
   :custom
-  (org-download-method 'directory)
-  (org-download-image-dir (concat org-directory "/images"))
+  (org-download-method 'attach)
   (org-download-heading-lvl nil)
   (org-download-timestamp "%Y-%m-%d_%H-%M-%S_")
   (org-startup-with-inline-images t)
