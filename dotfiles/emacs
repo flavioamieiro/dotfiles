@@ -160,6 +160,7 @@
            (org-cycle-separator-lines -1)
            (org-display-inline-images t)
            (org-pretty-entities t)
+           (org-use-sub-superscripts "{}")
            (org-hide-emphasis-markers t))
   :hook (org-mode . org-indent-mode)
   :config (org-babel-do-load-languages
