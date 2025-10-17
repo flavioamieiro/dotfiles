@@ -176,6 +176,11 @@
   :custom
   (org-roam-directory (concat org-directory "/roam"))
   (org-roam-completion-everywhere t)
+  (org-roam-dailies-capture-templates
+      '(("d" "default" plain "* %?"
+         :target (file+head "%<%Y-%m-%d>.org" ":PROPERTIES:\n:ID:       ${org-roam-node-id}\n:END:\n#+title: %<%Y-%m-%d>\n#+filetags: :daily:\n")
+         :empty-lines 1
+         :empty-lines-before 2)))
   :config
   (org-roam-db-autosync-mode)
   (require 'org-roam-protocol)
