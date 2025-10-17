@@ -158,6 +158,11 @@
            (org-agenda-files (directory-files-recursively org-directory "\\.org$"))
            (org-cycle-separator-lines -1)
            (org-display-inline-images t))
+  :config (org-babel-do-load-languages
+           'org-babel-load-languages
+           '((C . t)
+             (python . t)
+             (shell . t)))
   :bind (("C-c C-g l" . org-store-link)
          ("C-c C-g a" . org-agenda)
          ("C-c C-g c" . org-capture)))
