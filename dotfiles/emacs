@@ -56,7 +56,8 @@
   (ivy-use-virtual-buffers t)
   (ivy-count-format "(%d/%d) ")
   :config
-  (ivy-mode 1))
+  (ivy-mode 1)
+  (setq ivy-re-builders-alist '((t . ivy--regex-fuzzy))))
 
 (use-package ivy-rich
   :ensure t
