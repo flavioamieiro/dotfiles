@@ -175,6 +175,7 @@
   :ensure t
   :custom
   (org-roam-directory (concat org-directory "/roam"))
+  (org-roam-completion-everywhere t)
   :config
   (org-roam-db-autosync-mode)
   (require 'org-roam-protocol)
