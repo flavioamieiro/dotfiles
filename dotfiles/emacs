@@ -186,6 +186,14 @@
   (require 'org-roam-protocol)
   :bind (("C-c C-g j" . org-roam-dailies-capture-today)
          ("C-c C-g J" . org-roam-dailies-goto-today)))
+  (add-to-list 'display-buffer-alist
+             '("\\*org-roam\\*"
+               (display-buffer-in-side-window)
+               (side . right)
+               (slot . 0)
+               (window-width . 0.33)
+               (window-parameters . ((no-other-window . t)
+                                     (no-delete-other-windows . t)))))
 
 (use-package org-download
   :ensure t
