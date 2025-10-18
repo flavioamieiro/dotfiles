@@ -1,48 +1,43 @@
-;; utils
-;;;;;;;;
-(defun add-to-path-if-exists (file-name)
-  (if (file-readable-p file-name)
-      (add-to-list 'load-path file-name)))
-
 ;; adds MELPA repos
 ;;;;;;;;;;;;;;;;;;;
 (require 'package)
-(add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages/"))
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (package-initialize)
-
-(when (not package-archive-contents)
-  (package-refresh-contents))
-
-(defvar required-packages
-  '(eglot
-    elpy
-    flycheck-rust
-    flymake-shellcheck
-    expand-region
-    glsl-mode
-    rust-mode
-    js2-mode
-    yaml-mode
-    skewer-mode
-    scad-mode))
-
-(mapc #'(lambda (package)
-	  (unless (package-installed-p package)
-	    (package-install package)))
-      required-packages)
-
 
 ;; Base changes
 ;;;;;;;;;;;;;;;
+(use-package emacs
+  :custom
+    (split-height-threshold nil)
+    (split-width-threshold 160)
+    (inhibit-startup-screen t)
+    (scheme-program-name "\guile")
+    (httpd-port 8888)
+  :bind
+    ("<f5>" . recompile)
+  :config
+    (put 'python-shell-process-environment 'safe-local-variable
+      (lambda (v) '(string-prefix-p "DJANGO_SETTINGS_MODULE=" v)))
+    (put 'elpy-test-runner 'safe-local-variable (lambda (_) t))
+    (put 'downcase-region 'disabled nil)
+    (set-face-attribute 'default nil :height 140)
+  :hook
+    (after-init . global-auto-revert-mode)
+    (after-init . global-company-mode))
+
 (use-package hideshow
   :hook
     (prog-mode . hs-minor-mode))
 
+(use-package whitespace
+  :custom
+    (whitespace-style '(face tabs spaces trailing lines-tail space-before-tab missing-newline-at-eof empty space-mark tab-mark))
+  :hook
+    (after-init . global-whitespace-mode)
+    (before-save . delete-trailing-whitespace))
+
 (use-package better-defaults
   :ensure t)
-(add-hook 'after-init-hook 'global-company-mode)
-(global-auto-revert-mode)
 
 ;; Completion/minibuffer
 ;;;;;;;;;;;;;;;;;;;;;;;;
@@ -70,27 +65,52 @@
 ;; Packages used by other packages
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-(use-package flycheck
+(use-package eglot
   :ensure t)
 
 (use-package f
   :ensure t)
 
+(use-package flycheck
+  :ensure t
+  :hook
+    (after-init . global-flycheck-mode))
+
+(use-package pdf-tools
+  :ensure t)
+
 
 ;; modes for diferent filetypes
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(require 'eglot)
 
-(add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell)
+(use-package dts-mode
+  :ensure t
+  :mode ("\\.dts\\'" "\\.dtsi\\'"))
 
-(require 'yaml-mode)
-(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+(use-package flymake-shellcheck
+  :ensure t
+  :hook
+  (sh-mode-hook . flymake-shellcheck-load))
 
 (use-package glsl-mode
   :ensure t)
 
 (use-package markdown-mode
   :ensure t)
+
+(use-package js2-mode
+  :ensure t
+  :mode "\\.js\\'")
+
+(use-package skewer-mode
+  :ensure t
+  :hook
+    (js2-mode . skewer-mode))
+
+(use-package yaml-mode
+  :ensure t
+  :mode "\\.yml\\'")
+
 
 ; python
 ;;;;;;;;
@@ -108,9 +128,7 @@
   :init
     (advice-add 'python-mode :before 'elpy-enable)
   :config
-    (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-    (put 'python-shell-process-environment 'safe-local-variable
-      (lambda (v) '(string-prefix-p "DJANGO_SETTINGS_MODULE=" v))))
+    (setq elpy-modules (delq 'elpy-module-flymake elpy-modules)))
 
 (use-package blacken
   :ensure t
@@ -138,7 +156,7 @@
    (elpy-mode . ssbb-pyenv-auto))
 
 
-; rust
+; Rust
 ;;;;;;
 
 (require 'rust-mode)
@@ -147,29 +165,17 @@
 (add-to-list 'eglot-server-programs
              '((rust-ts-mode rust-mode) .
                ("rust-analyzer" :initializationOptions (:check (:command "clippy")))))
-(with-eval-after-load 'rust-mode
-  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
-
-(add-hook 'sh-mode-hook 'flymake-shellcheck-load)
-(add-hook 'after-init-hook #'global-flycheck-mode)
-
-; javascript
-;;;;;;;;;;;;
-
-(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
-(add-hook 'js2-mode-hook 'skewer-mode)
 
 
-; device-tree
-;;;;;;;;;;;;;
-
-(use-package dts-mode
-  :mode ("\\.dts\\'" "\\.dtsi\\'"))
+(use-package flycheck-rust
+  :ensure t
+  :after rust-mode
+  :hook
+    (flycheck-mode . flycheck-rust-setup))
 
 
 ; org-mode
 ;;;;;;;;;;
-
 (use-package org
   :ensure t
   :custom ((org-directory (file-truename "~/org"))
@@ -239,65 +245,36 @@
     (("s-Y" . org-download-clipboard)
      ("s-y" . org-download-yank))))
 
-
-(use-package pdf-tools
-  :ensure t)
-
 (use-package org-noter
   :ensure t)
 
 ;; Inferior programs
 ;;;;;;;;;;;;;;;;;;;;
-
-;; I'm using an alias for guile so it is wrapped by nlwrap.
-;; This causes problems when it's running as the scheme-program
-;; in emacs, so here we use the original command, skipping
-;; the alias.
-(setq scheme-program-name "\guile")
-
-;; Processing
-(setq processing-location "~/bin/processing-java")
-(setq processing-application-dir "~/Installs/processing/")
-(setq processing-sketchbook-dir "~/sketchbook/")
-(setq httpd-port 8888)
-
 (use-package magit
   :ensure t
   :custom
     (magit-blame-echo-style 'headings)
   :bind
     ("C-x g" . magit-status)
-    ("C-x M-g" . magit-dispatch))
+    ("C-x M-g" . magit-dispatch)
+  :hook
+    (git-commit-setup . git-commit-turn-on-flyspell))
+
 
 ;; Misc
 ;;;;;;;
-
-(setq inhibit-startup-screen t)
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
-
-(require 'expand-region)
-(global-set-key (kbd "C-=") 'er/expand-region)
-(global-set-key (kbd "<f5>") 'recompile)
+(use-package expand-region
+  :bind
+    ("C-=" . er/expand-region))
 
 
 ;; UI customization
 ;;;;;;;;;;;;;;;;;;;;
-(require 'display-line-numbers)
-(global-display-line-numbers-mode)
-; (setq split-width-threshold nil)
-
-(require 'whitespace)
-(global-whitespace-mode)
-(setq whitespace-style '(face tabs spaces trailing lines-tail space-before-tab missing-newline-at-eof empty space-mark tab-mark))
-
-(setq default-frame-alist '((width . 100) (height . 35)))
+(use-package display-line-numbers
+  :hook
+    (after-init . global-display-line-numbers-mode))
 
 (use-package catppuccin-theme
   :ensure t
   :config
     (load-theme 'catppuccin :no-confirm))
-
-(set-face-attribute 'default nil :height 140)
-
-(setq split-height-threshold nil)
-(put 'downcase-region 'disabled nil)
