@@ -15,8 +15,7 @@
   (package-refresh-contents))
 
 (defvar required-packages
-  '(better-defaults
-    material-theme
+  '(material-theme
     catppuccin-theme
     blacken
     markdown-mode
@@ -43,7 +42,8 @@
 
 ;; Base changes
 ;;;;;;;;;;;;;;;
-(require 'better-defaults)
+(use-package better-defaults
+  :ensure t)
 (add-hook 'after-init-hook 'global-company-mode)
 (global-auto-revert-mode)
 
