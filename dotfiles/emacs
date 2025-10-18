@@ -117,14 +117,11 @@
 
 (use-package elpy
   :ensure t
-  :defer t
-  :requires flycheck
-  :after flycheck
   :custom
     (elpy-formatter "black")
     (elpy-rpc-virtualenv-path 'current)
   :hook
-    (eply-mode . flycheck-mode)
+    (elpy-mode . flycheck-mode)
   :init
     (advice-add 'python-mode :before 'elpy-enable)
   :config
