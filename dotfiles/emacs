@@ -159,6 +159,7 @@
            (org-agenda-files (directory-files-recursively org-directory "\\.org$"))
            (org-cycle-separator-lines -1)
            (org-display-inline-images t)
+           (org-special-ctrl-a/e t)
            (org-pretty-entities t)
            (org-use-sub-superscripts "{}")
            (org-hide-emphasis-markers t))
