@@ -15,10 +15,7 @@
   (package-refresh-contents))
 
 (defvar required-packages
-  '(catppuccin-theme
-    blacken
-    markdown-mode
-    eglot
+  '(eglot
     elpy
     flycheck
     flycheck-rust
@@ -27,7 +24,6 @@
     glsl-mode
     pyenv-mode
     rust-mode
-    magit
     js2-mode
     yaml-mode
     skewer-mode
@@ -52,11 +48,11 @@
 (use-package ivy
   :ensure t
   :custom
-  (ivy-use-virtual-buffers t)
-  (ivy-count-format "(%d/%d) ")
+    (ivy-use-virtual-buffers t)
+    (ivy-count-format "(%d/%d) ")
   :config
-  (ivy-mode 1)
-  (setq ivy-re-builders-alist '((t . ivy--regex-fuzzy))))
+    (ivy-mode 1)
+    (setq ivy-re-builders-alist '((t . ivy--regex-fuzzy))))
 
 (use-package ivy-rich
   :ensure t
@@ -81,6 +77,9 @@
 (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
 
 (use-package glsl-mode
+  :ensure t)
+
+(use-package markdown-mode
   :ensure t)
 
 ; python
@@ -242,6 +241,14 @@
 (setq processing-sketchbook-dir "~/sketchbook/")
 (setq httpd-port 8888)
 
+(use-package magit
+  :ensure t
+  :custom
+    (magit-blame-echo-style 'headings)
+  :bind
+    ("C-x g" . magit-status)
+    ("C-x M-g" . magit-dispatch))
+
 ;; Misc
 ;;;;;;;
 
@@ -250,9 +257,7 @@
 
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
-(global-set-key (kbd "C-x g") 'magit-status)
 (global-set-key (kbd "<f5>") 'recompile)
-(global-set-key (kbd "C-x M-g") 'magit-dispatch)
 
 
 ;; UI customization
@@ -270,10 +275,12 @@
 
 (setq default-frame-alist '((width . 100) (height . 35)))
 
-(load-theme 'catppuccin :no-confirm)
+(use-package catppuccin-theme
+  :ensure t
+  :config
+    (load-theme 'catppuccin :no-confirm))
+
+(set-face-attribute 'default nil :height 140)
 
 (setq split-height-threshold nil)
-;; (setq split-width-threshold 160)
 (put 'downcase-region 'disabled nil)
-(setq magit-blame-echo-style 'headings)
-(set-face-attribute 'default nil :height 140)
