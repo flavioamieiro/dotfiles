@@ -117,6 +117,7 @@
 
 (use-package elpy
   :ensure t
+  :defer t
   :custom
     (elpy-formatter "black")
     (elpy-rpc-virtualenv-path 'current)
