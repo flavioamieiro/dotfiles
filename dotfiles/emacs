@@ -17,12 +17,10 @@
 (defvar required-packages
   '(eglot
     elpy
-    flycheck
     flycheck-rust
     flymake-shellcheck
     expand-region
     glsl-mode
-    pyenv-mode
     rust-mode
     js2-mode
     yaml-mode
@@ -65,6 +63,16 @@
     (setq ivy-initial-inputs-alist nil)
     (counsel-mode))
 
+;; Packages used by other packages
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(use-package flycheck
+  :ensure t)
+
+(use-package f
+  :ensure t)
+
+
 ;; modes for diferent filetypes
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (add-hook 'prog-mode-hook #'hs-minor-mode)
@@ -85,38 +93,48 @@
 ; python
 ;;;;;;;;
 
-(pyenv-mode)
-(elpy-enable)
+(use-package elpy
+  :ensure t
+  :defer t
+  :requires flycheck
+  :after flycheck
+  :custom
+    (elpy-formatter "black")
+    (elpy-rpc-virtualenv-path 'current)
+  :hook
+    (eply-mode . flycheck-mode)
+  :init
+    (advice-add 'python-mode :before 'elpy-enable)
+  :config
+    (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+    (put 'python-shell-process-environment 'safe-local-variable
+      (lambda (v) '(string-prefix-p "DJANGO_SETTINGS_MODULE=" v))))
 
-(setq elpy-formatter "black")
+(use-package blacken
+  :ensure t
+  :after elpy
+  :bind
+    (:map elpy-refactor-map
+      ; This currently does not show up as an option in the minibuffer, but works.
+      ("f" . blacken-buffer)))
 
-(define-key elpy-refactor-map (kbd "f")
-  (cons (format "%sormat code"
-                (propertize "f" 'face 'bold))
-        'blacken-buffer))
-
-(when (require 'flycheck nil t)
-  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-  (add-hook 'elpy-mode-hook 'flycheck-mode))
-
-
-(defun ssbb-pyenv-hook ()
+(defun ssbb-pyenv-auto ()
   "Automatically activates pyenv version if .python-version file exists."
   (f-traverse-upwards
    (lambda (path)
      (let ((pyenv-version-path (f-expand ".python-version" path)))
        (if (f-exists? pyenv-version-path)
-	   (pyenv-mode-set (s-trim (f-read-text pyenv-version-path 'utf-8))))))))
+          (pyenv-mode-set (s-trim (f-read-text pyenv-version-path 'utf-8))))))))
 
-(ssbb-pyenv-hook)
+(use-package pyenv-mode
+ :ensure t
+ :defer t
+ :requires f
+ :after elpy
+ :hook
+   (elpy-mode . pyenv-mode)
+   (elpy-mode . ssbb-pyenv-auto))
 
-(add-to-list 'exec-path "~/.pyenv/shims")
-;(elpy-use-ipython)
-
-(setq elpy-rpc-virtualenv-path 'current)
-
-(put 'python-shell-process-environment 'safe-local-variable
-     (lambda (v) '(string-prefix-p "DJANGO_SETTINGS_MODULE=" v)))
 
 ; rust
 ;;;;;;
