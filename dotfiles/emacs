@@ -35,6 +35,10 @@
 
 ;; Base changes
 ;;;;;;;;;;;;;;;
+(use-package hideshow
+  :hook
+    (prog-mode . hs-minor-mode))
+
 (use-package better-defaults
   :ensure t)
 (add-hook 'after-init-hook 'global-company-mode)
@@ -75,8 +79,6 @@
 
 ;; modes for diferent filetypes
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-(add-hook 'prog-mode-hook #'hs-minor-mode)
-
 (require 'eglot)
 
 (add-hook 'git-commit-setup-hook 'git-commit-turn-on-flyspell)
@@ -280,9 +282,6 @@
 
 ;; UI customization
 ;;;;;;;;;;;;;;;;;;;;
-(define-key hs-minor-mode-map (kbd "C-c C-h") (lookup-key hs-minor-mode-map (kbd "C-c @")))
-(define-key hs-minor-mode-map (kbd "C-c @") nil)
-
 (require 'display-line-numbers)
 (global-display-line-numbers-mode)
 ; (setq split-width-threshold nil)
