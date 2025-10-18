@@ -15,8 +15,7 @@
   (package-refresh-contents))
 
 (defvar required-packages
-  '(material-theme
-    catppuccin-theme
+  '(catppuccin-theme
     blacken
     markdown-mode
     eglot
