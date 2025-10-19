@@ -212,6 +212,10 @@
          :target (file+head+olp "%<%Y-%m-%d>.org" ":PROPERTIES:\n:ID:       ${org-roam-node-id}\n:END:\n#+title: %<%Y-%m-%d>\n#+filetags: :daily:\n" ("Inbox"))
          :empty-lines 1
          :empty-lines-before 2)))
+  (org-roam-node-display-template
+      (concat "${title:*} "
+              (propertize "${tags:50}" 'face 'org-tag)))
+
   :config
   (org-roam-db-autosync-mode)
   (add-to-list 'display-buffer-alist
