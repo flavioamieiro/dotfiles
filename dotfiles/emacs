@@ -179,6 +179,7 @@
   :custom ((org-directory (file-truename "~/org"))
            (org-default-notes-file (concat org-directory "/roam/inbox.org"))
            (org-agenda-files (directory-files-recursively org-directory "\\.org$"))
+           (org-attach-store-link-p 'attached)
            (org-cycle-separator-lines -1)
            (org-display-inline-images t)
            (org-special-ctrl-a/e t)
