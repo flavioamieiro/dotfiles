@@ -195,13 +195,6 @@
              (shell . t)))
   :bind (("C-c C-g l" . org-store-link)
          ("C-c C-g a" . org-agenda)
-
-(use-package org-appear
-  :ensure t
-  :custom
-    (org-appear-autolinks t)
-  :hook
-    (org-mode . org-appear-mode))
          ("C-c C-g c" . org-capture)
          (:map org-mode-map
            ("C-c C-q" . counsel-org-tag))))
@@ -253,6 +246,21 @@
 
 (use-package org-noter
   :ensure t)
+
+(use-package org-appear
+  :ensure t
+  :custom
+    (org-appear-autolinks t)
+  :hook
+    (org-mode . org-appear-mode))
+
+(use-package org-modern
+  :ensure t
+  :custom
+    (org-modern-fold-stars '(("▸" . "▾") ("▸" . "▾") ("▸" . "▾") ("▸" . "▾") ("▸" . "▾")))
+  :hook
+    (org-mode . org-modern-mode))
+
 
 ;; Inferior programs
 ;;;;;;;;;;;;;;;;;;;;
