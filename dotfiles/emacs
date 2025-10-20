@@ -15,6 +15,7 @@
     (httpd-port 8888)
   :bind
     ("<f5>" . recompile)
+    ("C-M-j" . join-line)
   :config
     (put 'python-shell-process-environment 'safe-local-variable
       (lambda (v) '(string-prefix-p "DJANGO_SETTINGS_MODULE=" v)))
