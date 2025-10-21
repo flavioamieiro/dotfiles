@@ -59,6 +59,8 @@
 (use-package counsel
   :ensure t
   :defer t
+  :bind
+    ("C-x M-f" . counsel-fzf)
   :config
     (setq ivy-initial-inputs-alist nil)
     (counsel-mode))
