@@ -40,8 +40,8 @@
 (use-package better-defaults
   :ensure t)
 
-;; Completion/minibuffer
-;;;;;;;;;;;;;;;;;;;;;;;;
+; ;; Completion/minibuffer
+; ;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package ivy
   :ensure t
@@ -58,62 +58,78 @@
 
 (use-package counsel
   :ensure t
+  :defer t
   :config
     (setq ivy-initial-inputs-alist nil)
     (counsel-mode))
 
-;; Packages used by other packages
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; ;; Packages used by other packages
+; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package eglot
-  :ensure t)
+  :ensure t
+  :defer t
+  :config
+    (add-to-list 'eglot-server-programs
+      '((rust-ts-mode rust-mode) .
+       ("rust-analyzer" :initializationOptions (:check (:command "clippy"))))))
 
 (use-package f
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package flycheck
   :ensure t
+  :defer t
   :hook
     (after-init . global-flycheck-mode))
 
 (use-package pdf-tools
-  :ensure t)
+  :ensure t
+  :defer t)
 
 
-;; modes for diferent filetypes
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+; ;; modes for diferent filetypes
+; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package dts-mode
   :ensure t
+  :defer t
   :mode ("\\.dts\\'" "\\.dtsi\\'"))
 
 (use-package flymake-shellcheck
   :ensure t
+  :defer t
   :hook
   (sh-mode-hook . flymake-shellcheck-load))
 
 (use-package glsl-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package markdown-mode
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package js2-mode
   :ensure t
+  :defer t
   :mode "\\.js\\'")
 
 (use-package skewer-mode
   :ensure t
+  :defer t
   :hook
     (js2-mode . skewer-mode))
 
 (use-package yaml-mode
   :ensure t
+  :defer t
   :mode "\\.yml\\'")
 
 
-; python
-;;;;;;;;
+; ; python
+; ;;;;;;;;
 
 (use-package elpy
   :ensure t
@@ -130,6 +146,7 @@
 
 (use-package blacken
   :ensure t
+  :defer t
   :after elpy
   :bind
     (:map elpy-refactor-map
@@ -154,16 +171,20 @@
    (elpy-mode . ssbb-pyenv-auto))
 
 
-; Rust
-;;;;;;
+; ; Rust
+; ;;;;;;
 
-(require 'rust-mode)
-(add-hook 'rust-mode-hook (lambda () (setq indent-tabs-mode nil)))
-(add-hook 'rust-mode-hook 'eglot-ensure)
-(add-to-list 'eglot-server-programs
-             '((rust-ts-mode rust-mode) .
-               ("rust-analyzer" :initializationOptions (:check (:command "clippy")))))
+; (require 'rust-mode)
+; (add-hook 'rust-mode-hook (lambda () (setq indent-tabs-mode nil)))
+; (add-hook 'rust-mode-hook 'eglot-ensure)
 
+(use-package rust-mode
+  :ensure t
+  :defer t
+  :after eglot
+  :hook
+    (rust-mode . (lambda () (setq indent-tabs-mode nil)))
+    (rust-mode-hook . eglot-ensure))
 
 (use-package flycheck-rust
   :ensure t
@@ -172,10 +193,11 @@
     (flycheck-mode . flycheck-rust-setup))
 
 
-; org-mode
-;;;;;;;;;;
+; ; org-mode
+; ;;;;;;;;;;
 (use-package org
   :ensure t
+  :defer t
   :custom ((org-directory (file-truename "~/org"))
            (org-default-notes-file (concat org-directory "/roam/inbox.org"))
            (org-agenda-files (directory-files-recursively org-directory "\\.org$"))
@@ -201,54 +223,59 @@
 
 (use-package org-roam
   :ensure t
+  :defer t
   :custom
-  (org-roam-directory (concat org-directory "/roam"))
-  (org-roam-completion-everywhere t)
-  (org-roam-dailies-capture-templates
+    (org-roam-directory (concat org-directory "/roam"))
+    (org-roam-completion-everywhere t)
+    (org-roam-dailies-capture-templates
       '(("d" "default" plain "** %?"
          :target (file+head+olp "%<%Y-%m-%d>.org" ":PROPERTIES:\n:ID:       ${org-roam-node-id}\n:END:\n#+title: %<%Y-%m-%d>\n#+filetags: :daily:\n" ("Inbox"))
          :empty-lines 1
          :empty-lines-before 2)))
-  (org-roam-node-display-template
+    (org-roam-node-display-template
       (concat "${title:*} "
-              (propertize "${tags:50}" 'face 'org-tag)))
-
+        (propertize "${tags:50}" 'face 'org-tag)))
   :config
-  (org-roam-db-autosync-mode)
-  (add-to-list 'display-buffer-alist
-             '("\\*org-roam\\*"
-               (display-buffer-in-side-window)
-               (side . right)
-               (slot . 0)
-               (window-width . 0.33)
-               (window-parameters . ((no-other-window . t)
-                                     (no-delete-other-windows . t)))))
-  (require 'org-roam-dailies)
-  :bind ((:map org-mode-map
-           (("C-c n f" . org-roam-node-find)
-            ("C-c n i" . org-roam-node-insert)
-            ("C-c n r" . org-roam-refile)
-            ("C-c n l" . org-roam-buffer-toggle))))
-  :bind-keymap ("C-c C-g d" . org-roam-dailies-map))
+    (org-roam-db-autosync-mode)
+    (add-to-list 'display-buffer-alist
+      '("\\*org-roam\\*"
+        (display-buffer-in-side-window)
+        (side . right)
+        (slot . 0)
+        (window-width . 0.33)
+        (window-parameters . ((no-other-window . t)
+          (no-delete-other-windows . t)))))
+    (require 'org-roam-dailies)
+  :bind
+    ((:map org-mode-map
+      (("C-c n f" . org-roam-node-find)
+       ("C-c n i" . org-roam-node-insert)
+       ("C-c n r" . org-roam-refile)
+       ("C-c n l" . org-roam-buffer-toggle))))
+  :bind-keymap
+    ("C-c C-g d" . org-roam-dailies-map))
 
 (use-package org-download
   :ensure t
+  :defer t
   :after org
   :custom
-  (org-download-method 'attach)
-  (org-download-heading-lvl nil)
-  (org-download-timestamp "%Y-%m-%d_%H-%M-%S_")
-  (org-startup-with-inline-images t)
+    (org-download-method 'attach)
+    (org-download-heading-lvl nil)
+    (org-download-timestamp "%Y-%m-%d_%H-%M-%S_")
+    (org-startup-with-inline-images t)
   :bind
-  (:map org-mode-map
-    (("s-Y" . org-download-clipboard)
-     ("s-y" . org-download-yank))))
+    (:map org-mode-map
+      (("s-Y" . org-download-clipboard)
+       ("s-y" . org-download-yank))))
 
 (use-package org-noter
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package org-appear
   :ensure t
+  :defer t
   :custom
     (org-appear-autolinks t)
   :hook
@@ -256,16 +283,18 @@
 
 (use-package org-modern
   :ensure t
+  :defer t
   :custom
     (org-modern-fold-stars '(("▸" . "▾") ("▸" . "▾") ("▸" . "▾") ("▸" . "▾") ("▸" . "▾")))
   :hook
     (org-mode . org-modern-mode))
 
 
-;; Inferior programs
-;;;;;;;;;;;;;;;;;;;;
+; ;; Inferior programs
+; ;;;;;;;;;;;;;;;;;;;;
 (use-package magit
   :ensure t
+  :defer t
   :custom
     (magit-blame-echo-style 'headings)
   :bind
@@ -275,20 +304,20 @@
     (git-commit-setup . git-commit-turn-on-flyspell))
 
 
-;; Misc
-;;;;;;;
+; ;; Misc
+; ;;;;;;;
 (use-package expand-region
+  :ensure t
+  :defer t
   :bind
     ("C-=" . er/expand-region))
 
 
-;; UI customization
-;;;;;;;;;;;;;;;;;;;;
+; ;; UI customization
+; ;;;;;;;;;;;;;;;;;;;;
 (use-package display-line-numbers
+  :ensure t
+  :defer t
   :hook
     (after-init . global-display-line-numbers-mode))
 
-(use-package catppuccin-theme
-  :ensure t
-  :config
-    (load-theme 'catppuccin :no-confirm))
