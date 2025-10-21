@@ -21,7 +21,6 @@
       (lambda (v) '(string-prefix-p "DJANGO_SETTINGS_MODULE=" v)))
     (put 'elpy-test-runner 'safe-local-variable (lambda (_) t))
     (put 'downcase-region 'disabled nil)
-    (set-face-attribute 'default nil :height 140)
   :hook
     (after-init . global-auto-revert-mode)
     (after-init . global-company-mode))
@@ -32,7 +31,7 @@
 
 (use-package whitespace
   :custom
-    (whitespace-style '(face tabs spaces trailing lines-tail space-before-tab missing-newline-at-eof empty space-mark tab-mark))
+    (whitespace-style '(face tabs trailing lines-tail space-before-tab missing-newline-at-eof empty tab-mark))
   :hook
     (after-init . global-whitespace-mode)
     (before-save . delete-trailing-whitespace))
@@ -323,3 +322,9 @@
   :hook
     (after-init . global-display-line-numbers-mode))
 
+(use-package warm-night-theme
+  :ensure t
+  :config
+    (load-theme 'warm-night t)
+    ; (set-face-attribute 'default nil :height 140)
+    (custom-set-faces '(default ((t (:height 180))))))
