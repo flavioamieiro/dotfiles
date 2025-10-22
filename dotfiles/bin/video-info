@@ -24,8 +24,10 @@ with yt_dlp.YoutubeDL(params=params) as ydl:
         sys.exit(1)
 
     sys.stdout.write(textwrap.dedent(f"""
-    #video - {info['fulltitle']}
-            - channel:: {info['channel']}
-              tags::
-            - {{{{video {info['webpage_url']}}}}}
+    ** [[{info['webpage_url']}][{info['fulltitle']}]]		:video:%^G
+    :PROPERTIES:
+    :channel: {info['channel']}
+    :END:
+
+    %?
     """))

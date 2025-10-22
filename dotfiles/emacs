@@ -222,6 +222,14 @@
          (:map org-mode-map
            ("C-c C-q" . counsel-org-tag))))
 
+  (with-eval-after-load 'org-roam
+    (defun get-yt-template ()
+      "Create org-capture template from youtube link"
+      (shell-command-to-string
+       (format
+        "video-info \"%s\" 2> /dev/null"
+        (read-string "Youtube Link:")))))
+
 (use-package org-roam
   :ensure t
   :defer t
@@ -230,6 +238,10 @@
     (org-roam-completion-everywhere t)
     (org-roam-dailies-capture-templates
       '(("d" "default" plain "** %?"
+         :target (file+head+olp "%<%Y-%m-%d>.org" ":PROPERTIES:\n:ID:       ${org-roam-node-id}\n:END:\n#+title: %<%Y-%m-%d>\n#+filetags: :daily:\n" ("Inbox"))
+         :empty-lines 1
+         :empty-lines-before 2)
+        ("v" "video" plain (function get-yt-template)
          :target (file+head+olp "%<%Y-%m-%d>.org" ":PROPERTIES:\n:ID:       ${org-roam-node-id}\n:END:\n#+title: %<%Y-%m-%d>\n#+filetags: :daily:\n" ("Inbox"))
          :empty-lines 1
          :empty-lines-before 2)))
