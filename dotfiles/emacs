@@ -210,7 +210,9 @@
            (org-pretty-entities t)
            (org-use-sub-superscripts "{}")
            (org-hide-emphasis-markers t))
-  :hook (org-mode . org-indent-mode)
+  :hook ((org-mode . org-indent-mode)
+         (org-mode . (lambda ()
+           (setq-local whitespace-line-column 9999))))
   :config (org-babel-do-load-languages
            'org-babel-load-languages
            '((C . t)
