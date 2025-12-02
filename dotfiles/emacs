@@ -218,19 +218,20 @@
            '((C . t)
              (python . t)
              (shell . t)))
+          (require 'org-roam)
   :bind (("C-c C-g l" . org-store-link)
          ("C-c C-g a" . org-agenda)
          ("C-c C-g c" . org-capture)
          (:map org-mode-map
            ("C-c C-q" . counsel-org-tag))))
 
-  (with-eval-after-load 'org-roam
-    (defun get-yt-template ()
-      "Create org-capture template from youtube link"
-      (shell-command-to-string
-       (format
-        "video-info \"%s\" 2> /dev/null"
-        (read-string "Youtube Link:")))))
+(with-eval-after-load 'org-roam
+  (defun get-yt-template ()
+    "Create org-capture template from youtube link"
+    (shell-command-to-string
+     (format
+      "video-info \"%s\" 2> /dev/null"
+      (read-string "Youtube Link:")))))
 
 (use-package org-roam
   :ensure t
@@ -342,3 +343,8 @@
     (load-theme 'warm-night t)
     ; (set-face-attribute 'default nil :height 140)
     (custom-set-faces '(default ((t (:height 180))))))
+
+; (use-package org-modern-indent
+;   :load-path "~/.emacs.d/org-modern-indent/"
+;   :hook ; add late to hook
+;     (org-mode . org-modern-indent-mode))
