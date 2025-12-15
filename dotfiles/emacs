@@ -219,6 +219,12 @@
              (python . t)
              (shell . t)))
           (require 'org-roam)
+          (add-to-list 'org-capture-templates
+                       '("v" "video" entry
+                         (file+headline org-default-notes-file "Inbox")
+                         (function get-yt-template)
+                            :empty-lines 1
+                            :empty-lines-before 2))
   :bind (("C-c C-g l" . org-store-link)
          ("C-c C-g a" . org-agenda)
          ("C-c C-g c" . org-capture)
@@ -241,10 +247,6 @@
     (org-roam-completion-everywhere t)
     (org-roam-dailies-capture-templates
       '(("d" "default" plain "** %?"
-         :target (file+head+olp "%<%Y-%m-%d>.org" ":PROPERTIES:\n:ID:       ${org-roam-node-id}\n:END:\n#+title: %<%Y-%m-%d>\n#+filetags: :daily:\n" ("Inbox"))
-         :empty-lines 1
-         :empty-lines-before 2)
-        ("v" "video" plain (function get-yt-template)
          :target (file+head+olp "%<%Y-%m-%d>.org" ":PROPERTIES:\n:ID:       ${org-roam-node-id}\n:END:\n#+title: %<%Y-%m-%d>\n#+filetags: :daily:\n" ("Inbox"))
          :empty-lines 1
          :empty-lines-before 2)))
