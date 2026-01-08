@@ -207,6 +207,7 @@
            (org-hide-emphasis-markers t))
   :hook ((org-mode . org-indent-mode)
          (org-mode . visual-line-mode)
+         (org-mode . flyspell-mode)
          (org-mode . (lambda ()
            (setq-local whitespace-line-column 9999))))
   :config (org-babel-do-load-languages
