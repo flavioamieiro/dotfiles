@@ -336,11 +336,10 @@
   :hook
     (after-init . global-display-line-numbers-mode))
 
-(use-package warm-night-theme
+(use-package zenburn-theme
   :ensure t
   :config
-    (load-theme 'warm-night t)
-    ; (set-face-attribute 'default nil :height 140)
+    (load-theme 'zenburn t)
     (custom-set-faces '(default ((t (:height 180))))))
 
 ; (use-package org-modern-indent
