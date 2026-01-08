@@ -39,8 +39,8 @@
 (use-package better-defaults
   :ensure t)
 
-; ;; Completion/minibuffer
-; ;;;;;;;;;;;;;;;;;;;;;;;;
+;; Completion/minibuffer
+;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package ivy
   :ensure t
@@ -64,8 +64,8 @@
     (setq ivy-initial-inputs-alist nil)
     (counsel-mode))
 
-; ;; Packages used by other packages
-; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Packages used by other packages
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package eglot
   :ensure t
@@ -90,8 +90,8 @@
   :defer t)
 
 
-; ;; modes for diferent filetypes
-; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; modes for diferent filetypes
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (use-package dts-mode
   :ensure t
@@ -129,8 +129,8 @@
   :mode "\\.yml\\'")
 
 
-; ; python
-; ;;;;;;;;
+; python
+;;;;;;;;
 
 (use-package elpy
   :ensure t
@@ -172,8 +172,8 @@
    (elpy-mode . ssbb-pyenv-auto))
 
 
-; ; Rust
-; ;;;;;;
+; Rust
+;;;;;;
 
 (use-package rust-mode
   :ensure t
@@ -189,8 +189,8 @@
     (flycheck-mode . flycheck-rust-setup))
 
 
-; ; org-mode
-; ;;;;;;;;;;
+; org-mode
+;;;;;;;;;;
 (use-package org
   :ensure t
   :defer t
@@ -305,8 +305,8 @@
     (org-mode . org-modern-mode))
 
 
-; ;; Inferior programs
-; ;;;;;;;;;;;;;;;;;;;;
+;; Inferior programs
+;;;;;;;;;;;;;;;;;;;;
 (use-package magit
   :ensure t
   :defer t
@@ -319,8 +319,8 @@
     (git-commit-setup . git-commit-turn-on-flyspell))
 
 
-; ;; Misc
-; ;;;;;;;
+;; Misc
+;;;;;;;
 (use-package expand-region
   :ensure t
   :defer t
@@ -328,8 +328,8 @@
     ("C-=" . er/expand-region))
 
 
-; ;; UI customization
-; ;;;;;;;;;;;;;;;;;;;;
+;; UI customization
+;;;;;;;;;;;;;;;;;;;;
 (use-package display-line-numbers
   :ensure t
   :defer t
@@ -341,8 +341,3 @@
   :config
     (load-theme 'zenburn t)
     (custom-set-faces '(default ((t (:height 180))))))
-
-; (use-package org-modern-indent
-;   :load-path "~/.emacs.d/org-modern-indent/"
-;   :hook ; add late to hook
-;     (org-mode . org-modern-indent-mode))
