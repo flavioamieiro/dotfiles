@@ -175,17 +175,12 @@
 ; ; Rust
 ; ;;;;;;
 
-; (require 'rust-mode)
-; (add-hook 'rust-mode-hook (lambda () (setq indent-tabs-mode nil)))
-; (add-hook 'rust-mode-hook 'eglot-ensure)
-
 (use-package rust-mode
   :ensure t
   :defer t
-  :after eglot
   :hook
     (rust-mode . (lambda () (setq indent-tabs-mode nil)))
-    (rust-mode-hook . eglot-ensure))
+    (rust-mode . eglot-ensure))
 
 (use-package flycheck-rust
   :ensure t
