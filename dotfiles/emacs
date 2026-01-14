@@ -76,8 +76,7 @@
        ("rust-analyzer" :initializationOptions (:check (:command "clippy"))))))
 
 (use-package f
-  :ensure t
-  :defer t)
+  :ensure t)
 
 (use-package flycheck
   :ensure t
