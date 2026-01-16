@@ -235,6 +235,3 @@ for_window [title="^Calculadora$"] floating enable, sticky enable
 {%@@ endif @@%}
 
 exec blueman-applet
-{%@@ if profile == "berlin" @@%}
-exec syncthing-gtk --minimized
-{%@@ endif @@%}
