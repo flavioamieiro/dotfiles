@@ -32,6 +32,11 @@
 (use-package whitespace
   :custom
     (whitespace-style '(face tabs trailing lines-tail space-before-tab missing-newline-at-eof empty tab-mark))
+    (whitespace-global-modes '(not magit-diff-mode
+                                   magit-log-mode
+                                   magit-refs-mode
+                                   magit-revision-mode
+                                   magit-status-mode))
   :hook
     (after-init . global-whitespace-mode)
     (before-save . delete-trailing-whitespace))
