@@ -15,7 +15,7 @@ try:
 except IndexError:
     usage()
 
-title_regex = b'<title.*>(.*?)<\/title>'
+title_regex = b'<title.*>(.*?)</title>'
 
 content = urllib.request.urlopen(url).read()
 
