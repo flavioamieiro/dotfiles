@@ -21,9 +21,6 @@ dotfiles:
   f_emacs:
     src: emacs
     dst: ~/.emacs
-  f_git-completion.bash:
-    src: git-completion.bash
-    dst: ~/.git-completion.bash
   f_gitconfig:
     src: gitconfig
     dst: ~/.gitconfig
@@ -119,7 +116,6 @@ profiles:
     - f_bashrc
     - f_coderc
     - f_emacs
-    - f_git-completion.bash
     - f_gitconfig
     - d_mplayer
     - f_screenrc
@@ -154,7 +150,6 @@ profiles:
     - f_bashrc
     - f_coderc
     - f_emacs
-    - f_git-completion.bash
     - f_gitconfig
     - d_mplayer
     - f_screenrc
@@ -185,7 +180,6 @@ profiles:
     - f_bashrc
     - f_coderc
     - f_emacs
-    - f_git-completion.bash
     - f_gitconfig
     - d_mplayer
     - f_screenrc
