@@ -206,7 +206,7 @@ input "type:keyboard" {
     Xkb_options ctrl:nocaps
 }
 
-bindsym Alt+Ctrl+l exec swaylock -c 000000
+bindsym Alt+$mod+l exec swaylock -c 000000
 
 bindsym Alt+Ctrl+3 exec grim
 bindsym Alt+Shift+3 exec grim -g "$(slurp)" - | wl-copy -t image/png
