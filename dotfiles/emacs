@@ -97,6 +97,11 @@
 ;; modes for diferent filetypes
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+(use-package cc-mode
+  :defer t
+  :custom (c-default-style "linux")
+  :hook (c-mode-common . eglot-ensure))
+
 (use-package dts-mode
   :ensure t
   :defer t
