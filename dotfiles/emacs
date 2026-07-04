@@ -233,6 +233,12 @@
                          (function get-yt-template)
                             :empty-lines 1
                             :empty-lines-before 2))
+          (add-to-list 'org-capture-templates
+                       '("h" "headline" entry
+                         (file+headline org-default-notes-file "Inbox")
+                         "** %?\n"
+                            :empty-lines 1
+                            :empty-lines-before 2))
   :bind (("C-c C-g l" . org-store-link)
          ("C-c C-g a" . org-agenda)
          ("C-c C-g c" . org-capture)
