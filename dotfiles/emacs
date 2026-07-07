@@ -96,10 +96,11 @@
 
 ;; modes for diferent filetypes
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 (use-package cc-mode
   :defer t
-  :custom (c-default-style "linux")
+  :custom (eglot-ignored-server-capabilities '(:documentOnTypeFormattingProvider))
+          (c-default-style "linux")
+          (c-label-minimum-indentation 0)
   :hook (c-mode-common . eglot-ensure))
 
 (use-package dts-mode
