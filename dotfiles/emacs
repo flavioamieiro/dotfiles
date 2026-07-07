@@ -176,6 +176,8 @@
  :defer t
  :requires f
  :after elpy
+ :bind (:map pyenv-mode-map
+   ("C-c C-s" . nil))
  :hook
    (elpy-mode . pyenv-mode)
    (elpy-mode . auto-find-pyenv))
