@@ -96,12 +96,17 @@
 
 ;; modes for diferent filetypes
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(defun disable-tab-highlight ()
+  (setq-local whitespace-style (delete 'tabs whitespace-style)))
+
 (use-package cc-mode
   :defer t
   :custom (eglot-ignored-server-capabilities '(:documentOnTypeFormattingProvider))
           (c-default-style "linux")
           (c-label-minimum-indentation 0)
-  :hook (c-mode-common . eglot-ensure))
+  :hook (c-mode-common . eglot-ensure)
+        (c-mode-common . disable-tab-highlight))
 
 (use-package dts-mode
   :ensure t
