@@ -275,6 +275,10 @@
     (org-roam-node-display-template
       (concat "${title:*} "
         (propertize "${tags:50}" 'face 'org-tag)))
+    (org-roam-capture-templates
+      '(("d" "default" plain "%?"
+      :target (file+head "${slug}.org" "#+title: ${title}\n")
+      :unnarrowed t)))
   :config
     (org-roam-db-autosync-mode)
     (add-to-list 'display-buffer-alist
