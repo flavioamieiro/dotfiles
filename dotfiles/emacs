@@ -132,6 +132,11 @@
   :defer t
   :mode "\\.js\\'")
 
+(use-package jinja2-mode
+  :ensure t
+  :defer t
+  :mode "\\.j2\\'")
+
 (use-package skewer-mode
   :ensure t
   :defer t
