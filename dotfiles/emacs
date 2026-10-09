@@ -213,6 +213,11 @@
 
 ; org-mode
 ;;;;;;;;;;
+(defun my-md-filter-src-block (text backend info)
+  "Changes code block format in Markdown exports from identation to ```...```"
+    (when (org-export-derived-backend-p backend 'md)
+        (concat "```\n" (replace-regexp-in-string "^    " "" text) "```\n\n")))
+
 (use-package org
   :ensure t
   :defer t
@@ -240,6 +245,7 @@
              (python . t)
              (shell . t)))
           (require 'org-roam)
+          (require 'ox-md)
           (add-to-list 'org-capture-templates
                        '("v" "video" entry
                          (file+headline org-default-notes-file "Inbox")
@@ -252,6 +258,8 @@
                          "** %?\n"
                             :empty-lines 1
                             :empty-lines-before 2))
+          (add-to-list 'org-export-filter-src-block-functions
+                       'my-md-filter-src-block)
   :bind (("C-c C-g l" . org-store-link)
          ("C-c C-g a" . org-agenda)
          ("C-c C-g c" . org-capture)
