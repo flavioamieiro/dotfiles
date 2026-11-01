@@ -27,10 +27,12 @@
     (after-init . global-company-mode))
 
 (use-package hideshow
+  :defer t
   :hook
     (prog-mode . hs-minor-mode))
 
 (use-package whitespace
+  :defer t
   :custom
     (whitespace-style '(face tabs trailing lines-tail space-before-tab missing-newline-at-eof empty tab-mark))
     (whitespace-global-modes '(not magit-diff-mode
@@ -50,6 +52,7 @@
 
 (use-package ivy
   :ensure t
+  :defer t
   :custom
     (ivy-use-virtual-buffers t)
     (ivy-count-format "(%d/%d) ")
@@ -82,7 +85,8 @@
        ("rust-analyzer" :initializationOptions (:check (:command "clippy"))))))
 
 (use-package f
-  :ensure t)
+  :ensure t
+  :defer t)
 
 (use-package flycheck
   :ensure t
@@ -207,6 +211,7 @@
 
 (use-package flycheck-rust
   :ensure t
+  :defer t
   :after rust-mode
   :hook
     (flycheck-mode . flycheck-rust-setup))
