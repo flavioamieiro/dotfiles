@@ -13,6 +13,7 @@
     (inhibit-startup-screen t)
     (scheme-program-name "\guile")
     (httpd-port 8888)
+    (backward-delete-char-untabify-method 'hungry)
   :bind
     ("<f5>" . recompile)
     ("C-M-j" . join-line)
