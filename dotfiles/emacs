@@ -47,6 +47,15 @@
 (use-package better-defaults
   :ensure t)
 
+(use-package fancy-compilation
+  :ensure t
+  :custom
+    (fancy-compilation-override-colors nil)
+  :commands (fancy-compilation-mode))
+
+(with-eval-after-load 'compile
+  (fancy-compilation-mode))
+
 ;; Completion/minibuffer
 ;;;;;;;;;;;;;;;;;;;;;;;;
 
