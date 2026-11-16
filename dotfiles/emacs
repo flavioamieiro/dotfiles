@@ -24,7 +24,8 @@
     (put 'downcase-region 'disabled nil)
   :hook
     (after-init . global-auto-revert-mode)
-    (after-init . global-company-mode))
+    (after-init . global-company-mode)
+    (after-init . column-number-mode))
 
 (use-package hideshow
   :defer t
