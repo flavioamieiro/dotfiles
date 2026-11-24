@@ -9,7 +9,9 @@ export HISTSIZE=100000
 export HISTFILESIZE=100000
 shopt -s histappend                      # append to history, don't overwrite it
 
-export EDITOR=vim
+alias e="emacsclient -c -n"
+
+export EDITOR="emacsclient -nw -a ''"
 
 #this fucks up the control+key shortcuts
 #set -o vi

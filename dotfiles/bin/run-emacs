@@ -1,7 +1,0 @@
-#!/bin/bash
-
-set -o allexport
-
-source "$HOME/.bashrc"
-
-exec emacs $*
