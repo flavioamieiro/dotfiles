@@ -71,6 +71,7 @@
 
 (use-package ivy-rich
   :ensure t
+  :after ivy
   :config
     (ivy-rich-mode 1))
 
@@ -78,7 +79,26 @@
   :ensure t
   :defer t
   :bind
-    ("C-x M-f" . counsel-fzf)
+    ("C-s" . swiper-isearch)
+    ("M-x" . counsel-M-x)
+    ("C-x C-f" . counsel-find-file)
+    ("M-y" . counsel-yank-pop)
+    ("<f1> f" . counsel-describe-function)
+    ("<f1> v" . counsel-describe-variable)
+    ("<f1> o" . counsel-describe-symbol)
+    ("<f1> l" . counsel-find-library)
+    ("<f2> i" . counsel-info-lookup-symbol)
+    ("<f2> u" . counsel-unicode-char)
+    ("<f2> j" . counsel-set-variable)
+    ("C-x b" . ivy-switch-buffer)
+    ("C-c v" . ivy-push-view)
+    ("C-c V" . ivy-pop-view)
+    ("C-c c" . counsel-compile)
+    ("C-c j" . counsel-git-grep)
+    ("C-c m" . counsel-linux-app)
+    ("C-c n" . counsel-fzf)
+    ("C-x l" . counsel-locate)
+    ("C-c J" . counsel-file-jump)
   :config
     (setq ivy-initial-inputs-alist nil)
     (counsel-mode))
