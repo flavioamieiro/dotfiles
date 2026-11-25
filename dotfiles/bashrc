@@ -32,11 +32,6 @@ then
     export PS1="($(basename $VIRTUAL_ENV))$PS1"
 fi
 
-# Change urxvt font size
-function fontsize() {
-    printf '\33]50;%s\007' "xft:Inconsolata:pixelsize=$1"
-}
-
 function get_redirect() {
     curl -I -L "$*" | grep -i location | cut -d':' -f2-
 }

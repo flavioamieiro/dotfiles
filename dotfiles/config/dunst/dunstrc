@@ -1,6 +1,4 @@
 [global]
-font = Inconsolata 18
-
 # Allow a small subset of html markup:
 #   <b>bold</b>
 #   <i>italic</i>
