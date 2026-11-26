@@ -115,6 +115,8 @@ show_indicators = no
 # This adds empty space above and under the text.
 line_height = 3
 
+font = Monospace 20
+
 # Draw a line of "separatpr_height" pixel height between two
 # notifications.
 # Set to 0 to disable.
