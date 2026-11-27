@@ -14,6 +14,7 @@
     (scheme-program-name "\guile")
     (httpd-port 8888)
     (backward-delete-char-untabify-method 'hungry)
+    (enable-recursive-minibuffers t)
   :bind
     ("<f5>" . recompile)
     ("C-M-j" . join-line)
@@ -57,51 +58,100 @@
 (with-eval-after-load 'compile
   (fancy-compilation-mode))
 
+(use-package savehist
+  :ensure t
+  :defer t
+  :init
+    (savehist-mode))
+
 ;; Completion/minibuffer
 ;;;;;;;;;;;;;;;;;;;;;;;;
 
-(use-package ivy
+(use-package vertico
+  :ensure t
+  :defer t
+  :init
+    (vertico-mode))
+
+(use-package orderless
   :ensure t
   :defer t
   :custom
-    (ivy-use-virtual-buffers t)
-    (ivy-count-format "(%d/%d) ")
-  :config
-    (ivy-mode 1))
+    (completion-styles '(orderless basic))
+    (completion-pcm-leading-wildcard t))
 
-(use-package ivy-rich
+(use-package consult
   :ensure t
-  :after ivy
-  :config
-    (ivy-rich-mode 1))
+  :defer t
+  :custom
+    (consult-preview-key "M-.")
+  :bind (
+    ("C-c M-x" . consult-mode-command)
+    ("C-c m" . consult-man)
+    ("C-c i" . consult-info)
+    ([remap Info-search] . consult-info)
 
-(use-package counsel
+    ("C-x b" . consult-buffer)
+    ("C-x 4 b" . consult-buffer-other-window)
+    ("C-x 5 b" . consult-buffer-other-frame)
+    ("C-x t b" . consult-buffer-other-tab)
+    ("C-x r b" . consult-bookmark)
+    ("C-x p b" . consult-project-buffer)
+
+    ("M-y" . consult-yank-pop)
+
+    ;; M-g bindings in `goto-map'
+    ("M-g e" . consult-compile-error)
+    ("M-g f" . consult-flymake)
+    ("M-g g" . consult-goto-line)
+    ("M-g o" . consult-outline)
+    ("M-g m" . consult-mark)
+    ("M-g k" . consult-global-mark)
+    ("M-g i" . consult-imenu)
+    ("M-g I" . consult-imenu-multi)
+
+    ;; M-s bindings in `search-map'
+    ("M-s f" . consult-find)
+    ("M-s g" . consult-grep)
+    ("M-s G" . consult-git-grep)
+    ("M-s l" . consult-line)
+    ("M-s L" . consult-line-multi)
+    ("M-s k" . consult-keep-lines)
+    ("M-s u" . consult-focus-lines)
+
+    :map isearch-mode-map
+    ("M-e" . consult-isearch-history)
+
+    ;; Minibuffer history
+    :map minibuffer-local-map
+    ("M-s" . consult-history)
+    ("M-r" . consult-history))
+  :init
+    (setq xref-show-xrefs-function #'consult-xref
+          xref-show-definitions-function #'consult-xref)
+  :config
+    (setq consult-narrow-key "<"))
+
+(use-package embark
   :ensure t
   :defer t
   :bind
-    ("C-s" . swiper-isearch)
-    ("M-x" . counsel-M-x)
-    ("C-x C-f" . counsel-find-file)
-    ("M-y" . counsel-yank-pop)
-    ("<f1> f" . counsel-describe-function)
-    ("<f1> v" . counsel-describe-variable)
-    ("<f1> o" . counsel-describe-symbol)
-    ("<f1> l" . counsel-find-library)
-    ("<f2> i" . counsel-info-lookup-symbol)
-    ("<f2> u" . counsel-unicode-char)
-    ("<f2> j" . counsel-set-variable)
-    ("C-x b" . ivy-switch-buffer)
-    ("C-c v" . ivy-push-view)
-    ("C-c V" . ivy-pop-view)
-    ("C-c c" . counsel-compile)
-    ("C-c j" . counsel-git-grep)
-    ("C-c m" . counsel-linux-app)
-    ("C-c n" . counsel-fzf)
-    ("C-x l" . counsel-locate)
-    ("C-c J" . counsel-file-jump)
-  :config
-    (setq ivy-initial-inputs-alist nil)
-    (counsel-mode))
+    (("C-." . embark-act)
+     ("C-;" . embark-dwim)
+     ("C-h B" . embark-bindings)))
+
+(use-package embark-consult
+  :ensure t
+  :defer t)
+
+(use-package marginalia
+  :ensure t
+  :defer t
+  :bind (:map minibuffer-local-map
+          ("M-A" . marginalia-cycle))
+  :init
+    (marginalia-mode))
+
 
 ;; Packages used by other packages
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
